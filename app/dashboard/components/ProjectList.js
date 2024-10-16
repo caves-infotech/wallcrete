@@ -1,9 +1,9 @@
 "use client";
 import React, { useRef, useState } from "react";
 import { useMyContext } from "./Context";
-import ProjectDetail from "./ProjectDetail";
 import ProjectCard from "./ProjectCard";
-import CustomButton from "./CustomButton";
+import { predefinedProjects } from "./data";
+import "../styles.css";
 
 const ProjectList = () => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -32,45 +32,6 @@ const ProjectList = () => {
       scrollContainerRef.current.scrollBy({ left: -200, behavior: "smooth" });
     }
   };
-
-  const predefinedProjects = [
-    {
-      projectId: 500,
-      name: "XYZ-PQR",
-      members: [
-        { id: "id1", name: "Member 1", role: "creator" },
-        { id: "id2", name: "Member 2", role: "employee" },
-      ],
-      status: "ongoing",
-      type: "interior",
-      subtype: "bunglow",
-      predefinedDesigns: [],
-      floors: ["ground", "first", "second", "third"],
-      location: "pune",
-    },
-    {
-      projectId: 508,
-      name: "ABC-XYZ",
-      members: [{ id: "id2", name: "Member 2", role: "Architect" }],
-      status: "completed",
-      type: "interior",
-      subtype: "industrial",
-      predefinedDesigns: [],
-      floors: ["ground", "first", "second", "third"],
-      location: "nashik",
-    },
-    {
-      projectId: 502,
-      name: "PQR-ABC",
-      members: [{ id: "id2", name: "Member 2", role: "Architect" }],
-      status: "completed",
-      type: "architect",
-      subtype: "commercial",
-      predefinedDesigns: [],
-      floors: ["ground", "first", "second"],
-      location: "mumbai",
-    },
-  ];
 
   const subtypes = [
     "All",
@@ -146,7 +107,7 @@ const ProjectList = () => {
       </svg>
 
       <svg
-        className="w-6 h-6 relative top-12 left-80 cursor-pointer inline-block"
+        className="w-6 h-6 relative top-12 left-[19rem] cursor-pointer inline-block"
         onClick={scrollToRight}
         xmlns="http://www.w3.org/2000/svg"
         fill="none"
@@ -196,7 +157,7 @@ const ProjectList = () => {
           <ul className="flex w-full h-8 ">
             {selectedType.map((item, index) => (
               <li
-                className={`w-24 px-6 border-b-4 ${
+                className={`w-28 px-6 border-b-4 ${
                   selectedTypeFilter === item ? "border-b-gray-400" : ""
                 } p-2 flex justify-center items-center cursor-pointer`}
                 key={index}
@@ -281,30 +242,26 @@ const ProjectList = () => {
       </div>
 
       {/* Render filtered project */}
-      <div className="relative bottom-10">
-        {filteredProjects.map((project) => (
-          <div
-            key={project.projectId}
-            className={`${
-              toggle ? "w-[40%]" : "w-full"
-            } h-24 text-left shadow-lg mb-4 hover:bg-gray-50  cursor-pointer transition-all duration-200 ease-in-out`}
-            onClick={() => {
-              sendDetails(project);
-              handleTogglee();
-            }}
-          >
-            <ProjectCard project={project} test={toggle} />
-          </div>
-        ))}
-      </div>
-
-      {toggle && (
-        <div className="w-52 h-[488px] relative bg-red-400 left-36 bottom-[23.5rem] rounded-md">
-          <ul>
-            <li>Electrical</li>
-          </ul>
+      <div className=" relative bottom-10 h-[480px] overflow-y-auto no-scrollbar">
+        <div
+          className={` gap-4 ${
+            toggle ? "w-[200%] flex flex-col" : "w-[100%] flex flex-wrap"
+          }`}
+        >
+          {filteredProjects.map((project) => (
+            <div
+              key={project.projectId}
+              className={`h-24 w-[calc(50%-16px)] text-left shadow-lg mb-4 hover:bg-gray-50 cursor-pointer transition-all duration-200 ease-in-out`}
+              onClick={() => {
+                sendDetails(project);
+                handleTogglee();
+              }}
+            >
+              <ProjectCard project={project} test={toggle} />
+            </div>
+          ))}
         </div>
-      )}
+      </div>
     </div>
   );
 };
