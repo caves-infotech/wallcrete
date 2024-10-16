@@ -3,7 +3,7 @@ export default function Home() {
     <div className="bg-[#FEFAF6] min-h-screen flex flex-col items-center justify-center">
       <header className="w-full bg-gradient-to-r from-red-500 to-yellow-500 p-8 shadow-xl rounded-b-lg">
         <h1 className="text-5xl font-extrabold text-center text-white tracking-wider drop-shadow-lg">
-          Welcome to wallcrete-WALL OF CREATION !!!
+          Welcome to wallcrete !!!
         </h1>
         <p className="text-center text-white text-lg mt-2 drop-shadow-sm">
           Designing the future of architecture
