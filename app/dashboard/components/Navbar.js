@@ -24,7 +24,7 @@ const Navbar = () => {
           objectFit="contain"
         />
       </div>
-      <h1 className="text-xl text-[#495E57] ml-2">Wall of Creation</h1>
+      <h1 className="text-xl text-[#495E57] ml-2">wall of creation</h1>
       <div
         className="h-10 w-10 rounded-full  ml-auto mr-6 flex items-center justify-center cursor-pointer"
         onMouseEnter={() => handleMouseEnter("login")}
