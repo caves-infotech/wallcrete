@@ -15,7 +15,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="fixed w-full h-14 p-2 border-2 shadow-md rounded-md flex items-center justify-start bg-white">
+    <nav className="lg:flex xl:fixed flex w-full h-14 p-2 border-2 shadow-md rounded-md items-center justify-start bg-white">
       <div className="relative h-10 w-10">
         <Image
           src={logo}
@@ -24,9 +24,12 @@ const Navbar = () => {
           objectFit="contain"
         />
       </div>
-      <h1 className="text-xl text-[#495E57] ml-2">wall of creation</h1>
+      <h1 className="hidden md:block text-xl text-[#495E57] ml-2">
+        wall of creation
+      </h1>
+      <h1 className="text-xl text-[#495E57] ml-2 md:hidden">wallcreat</h1>
       <div
-        className="h-10 w-10 rounded-full  ml-auto mr-6 flex items-center justify-center cursor-pointer"
+        className="mr-2 lg:bg-transparent lg:flex lg:h-10 w-10 rounded-full ml-auto lg:mr-6 items-center justify-center cursor-pointer"
         onMouseEnter={() => handleMouseEnter("login")}
         onMouseLeave={handleMouseLeave}
       >

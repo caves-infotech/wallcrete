@@ -11,9 +11,9 @@ const VerticalMenu = ({ onComponentSelect }) => {
     onComponentSelect(component);
   };
   return (
-    <div className="fixed top-[4.5rem] h-[88vh] rounded-lg bg-[#F5F7F8] px-1 py-3  ">
-      <div className="h-11 w-10"></div>
-      <div className="h-[68vh] overflow-y-auto no-scrollbar px-2 mt-1 ">
+    <div className="fixed top-20 lg:top-[4.5rem] h-[88vh] rounded-lg bg-[#F5F7F8]">
+      <div className="hidden lg:block h-11 w-10"></div>
+      <div className="h-[70vh] mt-0 lg:h-[68vh] overflow-y-auto no-scrollbar px-2 lg:mt-1 ">
         <ul className="flex flex-col items-center justify-center gap-6">
           <li
             onClick={() => handleComponentSelect("ProjectList")}
@@ -102,6 +102,27 @@ const VerticalMenu = ({ onComponentSelect }) => {
               <h2 className="text-xs">Members</h2>
             </li>
           </Link>
+          <li
+            onClick={() => handleComponentSelect("Chat")}
+            className="relative w-10 pt-1 h-10 border  flex flex-col items-center justify-center shadow-md bg-gray-100 text-slate-600 transition-transform transform hover:scale-110 hover:shadow-lg cursor-pointer rounded-md "
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth="1.5"
+              stroke="currentColor"
+              className="size-5"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M8.625 9.75a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm0 0H8.25m4.125 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm0 0H12m4.125 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm0 0h-.375m-13.5 3.01c0 1.6 1.123 2.994 2.707 3.227 1.087.16 2.185.283 3.293.369V21l4.184-4.183a1.14 1.14 0 0 1 .778-.332 48.294 48.294 0 0 0 5.83-.498c1.585-.233 2.708-1.626 2.708-3.228V6.741c0-1.602-1.123-2.995-2.707-3.228A48.394 48.394 0 0 0 12 3c-2.392 0-4.744.175-7.043.513C3.373 3.746 2.25 5.14 2.25 6.741v6.018Z"
+              />
+            </svg>
+
+            <h2 className="text-xs">Chats</h2>
+          </li>
 
           <Link href="/dashboard" passHref>
             <li className="relative w-10 pt-1 h-10 border  flex flex-col items-center justify-center shadow-md bg-gray-100 text-slate-600 transition-transform transform hover:scale-110 hover:shadow-lg cursor-pointer rounded-md ">
@@ -227,7 +248,7 @@ const VerticalMenu = ({ onComponentSelect }) => {
             </li>
           </Link>
           <Link href="/documents" passHref>
-            <li className="fixed bottom-5 left-4 w-10 pt-1 h-10   flex flex-col items-center justify-center text-slate-600 transition-transform transform hover:scale-110 hover:shadow-lg cursor-pointer rounded-md ">
+            <li className="left-[8px] fixed bottom-5 md:left-4 w-10 pt-1 h-10   flex flex-col items-center justify-center text-slate-600 transition-transform transform hover:scale-110 hover:shadow-lg cursor-pointer rounded-md ">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
@@ -250,6 +271,22 @@ const VerticalMenu = ({ onComponentSelect }) => {
             </li>
           </Link>
         </ul>
+      </div>
+      <div className="w-10 h-9 flex items-center justify-center ml-2 mt-2 bounce transition-transform transform hover:scale-110">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          strokeWidth="1.5"
+          stroke="currentColor"
+          className="w-8 h-6"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            d="m4.5 5.25 7.5 7.5 7.5-7.5m-15 6 7.5 7.5 7.5-7.5"
+          />
+        </svg>
       </div>
     </div>
   );

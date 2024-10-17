@@ -107,7 +107,7 @@ const ProjectList = () => {
       </svg>
 
       <svg
-        className="w-6 h-6 relative top-12 left-[19rem] cursor-pointer inline-block"
+        className="left-72 w-6 h-6 relative top-12 lg:left-[19rem] cursor-pointer inline-block"
         onClick={scrollToRight}
         xmlns="http://www.w3.org/2000/svg"
         fill="none"
@@ -242,7 +242,7 @@ const ProjectList = () => {
       </div>
 
       {/* Render filtered project */}
-      <div className=" relative bottom-10 h-[480px] overflow-y-auto no-scrollbar">
+      <div className="h-[380px] relative bottom-10 lg:h-[480px] overflow-y-auto no-scrollbar">
         <div
           className={` gap-4 ${
             toggle ? "w-[200%] flex flex-col" : "w-[100%] flex flex-wrap"

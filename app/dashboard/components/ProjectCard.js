@@ -8,7 +8,7 @@ const ProjectCard = ({ project, test }) => {
     <>
       <div
         key={project.projectId}
-        className={` h-24 text-left bg-indigo-500 rounded-lg shadow-lg p-2 border border-gray-200 hover:bg-opacity-90 hover:shadow-xl cursor-pointer transition-all duration-200 ease-in-out`}
+        className={` h-24 text-left bg-slate-400  rounded-lg shadow-lg p-2 border border-gray-200 hover:bg-opacity-90 hover:shadow-xl cursor-pointer transition-all duration-200 ease-in-out`}
       >
         <div className={`h-full flex items-center gap-4 `}>
           <div

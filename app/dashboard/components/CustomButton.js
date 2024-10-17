@@ -5,7 +5,7 @@ const CustomButton = ({ name, icon, onClick }) => {
     <div className="w-4/5 mx-auto mt-1">
       <button
         onClick={onClick}
-        className={`border w-11/12 h-11 rounded-full flex items-center justify-between p-2 transform transition-transform hover:scale-105 hover:shadow-xl shadow-lg bg-gradient-to-r from-blue-500 to-indigo-500`}
+        className={`border w-11/12 h-11 rounded-full flex items-center justify-between p-2 transform transition-transform hover:scale-105 hover:shadow-xl shadow-lg bg-gradient-to-r from-gray-500 to-gray-600`}
       >
         <span className="w-4/5 bg-white text-black flex items-center h-9 rounded-full text-sm px-4 overflow-hidden shadow-inner">
           <span className="w-full truncate">{name}</span>

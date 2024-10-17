@@ -1,15 +1,13 @@
 "use client";
-
-import Link from "next/link";
 import ProjectList from "./ProjectList";
 import Members from "./Members";
 import CRM from "./CRM";
 import Task from "./Task";
-import Chat from "./Chat";
 import Orders from "./Orders";
 import Pay from "./Pay";
 import Docs from "./Docs";
 import { useState } from "react";
+import Inbox from "./Inbox";
 
 const LeftSidebar = ({ selectedComponent }) => {
   const [sidebar, setSidebar] = useState(null);
@@ -25,7 +23,7 @@ const LeftSidebar = ({ selectedComponent }) => {
       case "Task":
         return <Task />;
       case "Chat":
-        return <Chat />;
+        return <Inbox />;
       case "Orders":
         return <Orders />;
       case "Pay":
@@ -44,8 +42,9 @@ const LeftSidebar = ({ selectedComponent }) => {
   return (
     <div>
       <div>
+        {/* hamburgor menu */}
         <button
-          className="fixed left-5 top-[4.4rem] z-50"
+          className="hidden md:block fixed left-5 top-[4.4rem] z-50"
           onClick={handleSlide}
         >
           <svg
@@ -65,7 +64,7 @@ const LeftSidebar = ({ selectedComponent }) => {
         </button>
       </div>
       <aside
-        className={`fixed w-1/4 h-[88vh] border-2 border-gray-300 rounded-xl m-2 top-16 shadow-lg transition-all duration-500 ${
+        className={`w-[85vw] mt-6 rounded-md ml-14 lg:ml-0 h-[85vh] lg:block lg:fixed lg:w-1/4 lg:h-[88vh] border-2 border-gray-300 md:rounded-xl m-2 top-12 shadow-lg transition-all duration-500 ${
           sidebar ? "-left-96 -z-10" : "left-16 z-10"
         }`}
       >

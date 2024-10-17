@@ -94,7 +94,7 @@ const Inbox = () => {
         </h3>
       </div>
 
-      <div className="overflow-y-auto max-h-[75vh] no-scrollbar">
+      <div className="overflow-y-auto max-h-[70vh] no-scrollbar">
         {filteredContacts.map((contact) => (
           <Contacts key={contact.id} data={contact} />
         ))}
