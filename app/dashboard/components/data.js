@@ -162,11 +162,14 @@ export const predefinedDesigns = [
   { id: 603, name: "Electrical" },
   { id: 604, name: "Plumbing" },
   { id: 605, name: "Ceiling" },
+  { id: 606, name: "Documents" },
+  { id: 607, name: "Quotation" },
+  { id: 608, name: "Boqs" },
+  { id: 609, name: "Orders" },
+  { id: 610, name: "Reports" },
 ];
 
 export const dropdownButtons = [
-  { id: 606, name: "Documents" },
-  { id: 607, name: "Quotation" },
   { id: 608, name: "Boqs" },
   { id: 609, name: "Orders" },
   { id: 610, name: "Reports" },

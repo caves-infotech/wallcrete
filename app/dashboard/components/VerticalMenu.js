@@ -104,7 +104,7 @@ const VerticalMenu = ({ onComponentSelect }) => {
           </Link>
           <li
             onClick={() => handleComponentSelect("Chat")}
-            className="relative w-10 pt-1 h-10 border  flex flex-col items-center justify-center shadow-md bg-gray-100 text-slate-600 transition-transform transform hover:scale-110 hover:shadow-lg cursor-pointer rounded-md "
+            className="hidden lg:flex relative w-10 pt-1 h-10 border flex-col items-center justify-center shadow-md bg-gray-100 text-slate-600 transition-transform transform hover:scale-110 hover:shadow-lg cursor-pointer rounded-md "
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"

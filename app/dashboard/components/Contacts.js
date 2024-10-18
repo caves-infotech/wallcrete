@@ -23,7 +23,7 @@ const Contacts = ({ data }) => {
               </p>
             </div>
             <div>
-              <p className="text-xs text-gray-600">
+              <p className="text-xs text-gray-600 truncate">
                 {data.lastMessage && data.lastMessage.text
                   ? data.lastMessage.text
                   : "No message"}

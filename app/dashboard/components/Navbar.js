@@ -15,11 +15,11 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="lg:flex xl:fixed flex w-full h-14 p-2 border-2 shadow-md rounded-md items-center justify-start bg-white">
+    <nav className="lg:flex xl:fixed flex w-full h-14 p-2 border-2 shadow-md rounded-md items-center justify-start bg-white z-20">
       <div className="relative h-10 w-10">
         <Image
           src={logo}
-          alt="Archbeez Logo"
+          alt="wallcreat Logo"
           layout="fill"
           objectFit="contain"
         />

@@ -12,6 +12,7 @@ export default function DashboardLayout({ children }) {
   const handleComponentSelect = (component) => {
     setSelectedComponent(component); // Update the selected component
   };
+
   return (
     <div className="dashboard flex flex-col h-screen">
       <MyProvider>

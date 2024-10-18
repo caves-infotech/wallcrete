@@ -6,7 +6,7 @@ const ProjectDetail = () => {
   const { data } = useMyContext();
 
   return (
-    <div className="h-24 p-2 border-2 border-gray-300 rounded-xl  ">
+    <div className="w-[80vw] lg:w-[50vw] ml-14 lg:-ml-4 h-12 lg:h-24 p-2 border-2 border-gray-300 rounded-xl  ">
       <div>
         <h1>Project Name: {data.name || "-"}</h1>
         <h2>

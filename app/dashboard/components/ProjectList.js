@@ -1,6 +1,5 @@
 "use client";
 import React, { useRef, useState } from "react";
-import { useMyContext } from "./Context";
 import ProjectCard from "./ProjectCard";
 import { predefinedProjects } from "./data";
 import "../styles.css";
@@ -14,13 +13,40 @@ const ProjectList = () => {
   const [newItem, setNewItem] = useState("");
   const [isInputVisible, setIsInputVisible] = useState(false);
   const inputRef = useRef(null);
+  const cardRef = useRef([]);
+  const [clickedIndex, setClickedIndex] = useState(null);
+  const containerRef = useRef(null);
   const scrollContainerRef = useRef(null);
-  const { setData } = useMyContext();
-  const [toggle, setToggle] = useState(false);
-  const handleTogglee = () => {
-    setToggle(!toggle);
+  const [toggle, setToggle] = useState(true);
+
+  // Project cards toggle and their selection
+  const handleTogglee = (projectId, event) => {
+    console.log("ksjfd");
+    console.log("Clicked Project ID:", projectId);
+    if (!toggle) {
+      // Reverting back to grouped view
+      setToggle(true);
+      setClickedIndex(null); // Collapse all cards
+    } else {
+      // Expand the clicked card
+      const cardElement = cardRef.current[projectId]; // Get the card element by projectId
+      if (cardElement) {
+        const cardRect = cardElement.getBoundingClientRect();
+        const cursorY = event.clientY;
+
+        // Calculate the offset for the clicked card
+        const containerRect = containerRef.current.getBoundingClientRect();
+        const containerScrollY = window.scrollY;
+
+        const cardTopPosition = cardRect.top + containerScrollY;
+        const offsetY = cursorY - cardTopPosition;
+
+        setToggle(false);
+        setClickedIndex({ index: projectId, offsetY });
+      }
+    }
   };
-  console.log(toggle);
+
   const scrollToRight = () => {
     if (scrollContainerRef.current) {
       scrollContainerRef.current.scrollBy({ left: 200, behavior: "smooth" });
@@ -81,11 +107,6 @@ const ProjectList = () => {
     } else {
       setNewItem("");
     }
-  };
-
-  // Function to send details
-  const sendDetails = (project) => {
-    setData(project);
   };
 
   return (
@@ -242,20 +263,21 @@ const ProjectList = () => {
       </div>
 
       {/* Render filtered project */}
-      <div className="h-[380px] relative bottom-10 lg:h-[480px] overflow-y-auto no-scrollbar">
+      <div className="w-full h-[380px] relative bottom-10 lg:h-[480px] overflow-y-auto no-scrollbar">
         <div
-          className={` gap-4 ${
-            toggle ? "w-[200%] flex flex-col" : "w-[100%] flex flex-wrap"
+          className={`mx-2 ml-6 w-11/123 flex gap-x-4 ${
+            toggle ? "flex-wrap" : "flex flex-col "
           }`}
+          ref={containerRef}
         >
           {filteredProjects.map((project) => (
             <div
               key={project.projectId}
-              className={`h-24 w-[calc(50%-16px)] text-left shadow-lg mb-4 hover:bg-gray-50 cursor-pointer transition-all duration-200 ease-in-out`}
-              onClick={() => {
-                sendDetails(project);
-                handleTogglee();
-              }}
+              className={`h-24 ${
+                toggle ? "w-2/5 hover:scale-105" : "w-full"
+              } text-left shadow-lg mb-4 hover:bg-gray-50 cursor-pointer transition-all duration-200 ease-in-out`}
+              ref={(el) => (cardRef.current[project.projectId] = el)} // Use projectId for storage
+              onClick={(e) => handleTogglee(project.projectId, e)} // Pass projectId to handleTogglee
             >
               <ProjectCard project={project} test={toggle} />
             </div>
