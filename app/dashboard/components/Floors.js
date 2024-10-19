@@ -5,56 +5,11 @@ import { predefinedDesigns, dropdownButtons, addIcon } from "./data.js";
 import "../styles.css";
 
 const Floors = ({ isReversed }) => {
-  const [activeButton, setActiveButton] = useState("All");
   const [btnDropdown, setBtnDropdown] = useState(false);
   const [basementFloors, setBasementFloors] = useState(["B-1", "B-2"]);
   const [upperFloors, setUpperFloors] = useState(["1-F", "2-F"]);
   const scrollContainerLeftRef = useRef();
   const scrollContainerRightRef = useRef();
-
-  // Array of button labels and corresponding div content
-  const buttons = [
-    {
-      label: "All",
-      content: (
-        <div className="w-full h-full flex  items-center justify-center bg-green-100">
-          <div className="flex flex-wrap gap-1 m-4">
-            <div className="w-32 h-32 border border-gray-300 rounded-lg bg-blue-500 text-white text-2xl flex items-center justify-center">
-              +
-            </div>
-            <div className="w-32 h-32 border border-gray-300 rounded-lg bg-blue-500"></div>
-            <div className="w-32 h-32 border border-gray-300 rounded-lg bg-blue-500"></div>
-            <div className="w-32 h-32 border border-gray-300 rounded-lg bg-blue-500"></div>
-            <div className="w-32 h-32 border border-gray-300 rounded-lg bg-blue-500"></div>
-          </div>
-        </div>
-      ),
-    },
-    {
-      label: "DW",
-      content: (
-        <div className="w-full h-full flex items-center justify-center bg-blue-100">
-          DW content displayed
-        </div>
-      ),
-    },
-    {
-      label: "3D",
-      content: (
-        <div className="w-full h-full flex items-center justify-center bg-purple-100">
-          3D content showing now
-        </div>
-      ),
-    },
-    {
-      label: "Doc",
-      content: (
-        <div className="w-full h-full flex items-center justify-center bg-yellow-100">
-          Document content is visible
-        </div>
-      ),
-    },
-  ];
 
   const scrollRightRContainer = () => {
     if (scrollContainerRightRef.current) {
@@ -111,7 +66,7 @@ const Floors = ({ isReversed }) => {
   };
 
   return (
-    <div className="p-2 border-2 border-gray-200 shadow-lg rounded-xl mt-2 mb-4 -ml-4">
+    <div className="w-[50vw] p-2 border-2 border-gray-200 shadow-lg rounded-lg mt-2 -ml-3">
       <div className="w-full h-12 bg-white rounded-md flex items-center justify-center shadow-md gap-1">
         <button
           className="w-11 h-10 border border-slate-500 rounded-md"
@@ -236,7 +191,7 @@ const Floors = ({ isReversed }) => {
       </div>
 
       <div
-        className={`flex justify-between w-full h-[458px] relative my-2 ${
+        className={`flex justify-between w-full h-[450px] xxl:h-[800px] relative my-2 ${
           isReversed ? "flex-row-reverse" : ""
         }`}
       >
@@ -245,11 +200,6 @@ const Floors = ({ isReversed }) => {
           {predefinedDesigns.map((data) => (
             <CustomButton key={data.id} name={data.name} />
           ))}
-          {/* <CustomButton
-            name={"add +"}
-            icon={addIcon}
-            onClick={handleDropdown}
-          /> */}
 
           {/* Dropdown menu */}
           {btnDropdown && (
@@ -264,27 +214,7 @@ const Floors = ({ isReversed }) => {
         </div>
 
         {/* Child div 2 */}
-        <div className="border-2 border-gray-300 rounded-md w-full h-full p-1">
-          <div className="w-full  border-b-4 border-b-gray-300h-6 rounded-md">
-            {buttons.map((btn) => (
-              <button
-                key={btn.label}
-                className={`w-32 h-full  text-slate-800 text-sm  transition-all
-              ${
-                activeButton === btn.label
-                  ? "border-b-4 border-b-slate-500"
-                  : "hover:border-b-4 hover:border-b-slate-500"
-              }`}
-                onClick={() => setActiveButton(btn.label)}
-              >
-                {btn.label}
-              </button>
-            ))}
-          </div>
-          <div className="w-full h-[90%] mt-1 p-1 flex items-center justify-center">
-            {buttons.find((btn) => btn.label === activeButton)?.content}
-          </div>
-        </div>
+        <div className="border-2 border-gray-300 rounded-md w-full h-full p-1"></div>
       </div>
     </div>
   );

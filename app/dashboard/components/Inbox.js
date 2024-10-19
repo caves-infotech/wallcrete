@@ -5,31 +5,31 @@ import { contacts } from "./data";
 
 const Inbox = () => {
   const [searchTerm, setSearchTerm] = useState("");
-  const [filter, setFilter] = useState(""); // State to store selected filter
+  const [roleFilter, setRoleFilter] = useState(""); // State for role filter
+  const [groupFilter, setGroupFilter] = useState(""); // State for group filter
+  const [selectedContact, setSelectedContact] = useState(null);
 
-  // Function to reset the filter and show all contacts
   const handleViewAll = () => {
-    setFilter(""); // Reset filter to show all contacts
+    setRoleFilter("");
+    setGroupFilter(""); // Reset both filters
   };
 
-  // Filter contacts based on the selected type
+  // Filter contacts based on search term, role filter, and group filter
   const filteredContacts = contacts.filter((contact) => {
-    // Match contact by name based on search term
     const matchesSearchTerm = contact.name
       .toLowerCase()
       .includes(searchTerm.toLowerCase());
 
-    // Match contact by role based on the selected filter
-    const matchesFilter = filter === "" || contact.role === filter;
+    const matchesRoleFilter = !roleFilter || contact.role === roleFilter;
+    const matchesGroupFilter = !groupFilter || contact.group === groupFilter;
 
-    // Return true if both the search term and filter match
-    return matchesSearchTerm && matchesFilter;
+    return matchesSearchTerm && matchesRoleFilter && matchesGroupFilter;
   });
 
   return (
     <div className="w-full p-4">
       <div className="w-full h-10 mb-2">
-        {/* search */}
+        {/* Search bar */}
         <button className="flex items-center justify-start h-10 w-full p-2 border border-gray-300 rounded-lg hover:bg-gray-100 transition-colors duration-300">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -47,7 +47,7 @@ const Inbox = () => {
           </svg>
           <input
             type="text"
-            placeholder="Search Projects..."
+            placeholder="Search contacts..."
             className="w-full h-8 p-2 rounded-lg focus:outline-none bg-gray-100"
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
@@ -55,48 +55,45 @@ const Inbox = () => {
         </button>
       </div>
       <div className="flex gap-2 items-center justify-start mb-5">
-        <div>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            strokeWidth="1.5"
-            stroke="currentColor"
-            className="w-6 h-6 mr-4"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M2.25 13.5h3.86a2.25 2.25 0 0 1 2.012 1.244l.256.512a2.25 2.25 0 0 0 2.013 1.244h3.218a2.25 2.25 0 0 0 2.013-1.244l.256-.512a2.25 2.25 0 0 1 2.013-1.244h3.859m-19.5.338V18a2.25 2.25 0 0 0 2.25 2.25h15A2.25 2.25 0 0 0 21.75 18v-4.162c0-.224-.034-.447-.1-.661L19.24 5.338a2.25 2.25 0 0 0-2.15-1.588H6.911a2.25 2.25 0 0 0-2.15 1.588L2.35 13.177a2.25 2.25 0 0 0-.1.661Z"
-            />
-          </svg>
-        </div>
-        <div>
+        <div className="w-1/2">
           <select
-            className="border border-gray-300 p-2 rounded-lg"
-            onChange={(e) => setFilter(e.target.value)} // Call filter function on change
+            className="w-full border border-gray-300 py-1 rounded-lg"
+            onChange={(e) => setRoleFilter(e.target.value)}
           >
             <option value="" className="hidden">
               Contacts
             </option>
-            <option value="employee">Employees</option>
-            <option value="client">Clients</option>
+            <option value="employee">Team Members</option>
             <option value="owner">Owner</option>
-            <option value="vendor">Vendor</option>
+            <option value="contractor">Contractor</option>
             <option value="consultant">Consultant</option>
+            <option value="supplier">Suppliers</option>
           </select>
         </div>
-        <h3
-          className="text-xs text-indigo-500 ml-auto cursor-pointer"
-          onClick={handleViewAll} // Call handleViewAll on click
-        >
-          View all
-        </h3>
+        <div className="w-1/2">
+          <select
+            className="w-full border border-gray-300 py-1 rounded-lg"
+            onChange={(e) => setGroupFilter(e.target.value)}
+          >
+            <option value="" className="hidden">
+              Groups
+            </option>
+            <option value="">Create a group</option>
+            <option value="groupid1">Group 1</option>
+            <option value="groupid2">Group 2</option>
+            <option value="groupid3">Group 3</option>
+          </select>
+        </div>
       </div>
 
       <div className="overflow-y-auto max-h-[70vh] no-scrollbar">
         {filteredContacts.map((contact) => (
-          <Contacts key={contact.id} data={contact} />
+          <Contacts
+            key={contact.id}
+            data={contact}
+            selectedContact={selectedContact}
+            setSelectedContact={setSelectedContact}
+          />
         ))}
       </div>
     </div>

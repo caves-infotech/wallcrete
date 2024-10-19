@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import logo from "../../../public/logo.webp";
+import logo from "../../../public/wallcreat logo/5.png";
 import { useState } from "react";
 
 const Navbar = () => {
@@ -16,17 +16,15 @@ const Navbar = () => {
 
   return (
     <nav className="lg:flex xl:fixed flex w-full h-14 p-2 border-2 shadow-md rounded-md items-center justify-start bg-white z-20">
-      <div className="relative h-10 w-10">
+      <div className="relative h-12 w-32">
         <Image
           src={logo}
           alt="wallcreat Logo"
           layout="fill"
-          objectFit="contain"
+          objectFit="cover"
         />
       </div>
-      <h1 className="hidden md:block text-xl text-[#495E57] ml-2">
-        wall of creation
-      </h1>
+
       <h1 className="text-xl text-[#495E57] ml-2 md:hidden">wallcreat</h1>
       <div
         className="mr-2 lg:bg-transparent lg:flex lg:h-10 w-10 rounded-full ml-auto lg:mr-6 items-center justify-center cursor-pointer"

@@ -20,29 +20,26 @@ const ProjectList = () => {
   const [toggle, setToggle] = useState(true);
 
   // Project cards toggle and their selection
-  const handleTogglee = (projectId, event) => {
-    console.log("ksjfd");
+  const handleTogglee = (projectId) => {
     console.log("Clicked Project ID:", projectId);
+
+    // Toggle view back to grouped state
     if (!toggle) {
-      // Reverting back to grouped view
       setToggle(true);
       setClickedIndex(null); // Collapse all cards
     } else {
       // Expand the clicked card
       const cardElement = cardRef.current[projectId]; // Get the card element by projectId
       if (cardElement) {
-        const cardRect = cardElement.getBoundingClientRect();
-        const cursorY = event.clientY;
+        // Ensure the card scrolls into view
+        cardElement.scrollIntoView({
+          behavior: "smooth",
+          block: "center", // Ensures the card is centered in the view
+        });
 
-        // Calculate the offset for the clicked card
-        const containerRect = containerRef.current.getBoundingClientRect();
-        const containerScrollY = window.scrollY;
-
-        const cardTopPosition = cardRect.top + containerScrollY;
-        const offsetY = cursorY - cardTopPosition;
-
-        setToggle(false);
-        setClickedIndex({ index: projectId, offsetY });
+        // Set the clicked index and toggle state
+        setToggle(false); // Switch to expanded view
+        setClickedIndex(projectId); // Store the clicked card's index
       }
     }
   };
@@ -263,9 +260,9 @@ const ProjectList = () => {
       </div>
 
       {/* Render filtered project */}
-      <div className="w-full h-[380px] relative bottom-10 lg:h-[480px] overflow-y-auto no-scrollbar">
+      <div className="w-full h-[380px] relative bottom-10 lg:h-[440px] overflow-y-auto no-scrollbar">
         <div
-          className={`mx-2 ml-6 w-11/123 flex gap-x-4 ${
+          className={`mx-2 ml-6 w-11/12 flex gap-x-4 ${
             toggle ? "flex-wrap" : "flex flex-col "
           }`}
           ref={containerRef}
@@ -283,6 +280,12 @@ const ProjectList = () => {
             </div>
           ))}
         </div>
+      </div>
+      {/* Add project */}
+      <div className="w-[85%] ml-4 h-10 -mt-7">
+        <button className="w-full h-8 border-2 border-gray-300 rounded-lg ">
+          + Add project
+        </button>
       </div>
     </div>
   );

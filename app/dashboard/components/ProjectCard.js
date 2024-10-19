@@ -18,7 +18,7 @@ const ProjectCard = ({ project, test }) => {
         <div className={`h-full flex items-center gap-4 `}>
           <div
             className={`${
-              test ? "w-full" : "w-2/5"
+              test ? "w-full" : "w-1/2"
             } h-20 rounded-lg overflow-hidden`}
           >
             <Image

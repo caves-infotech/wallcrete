@@ -11,6 +11,9 @@ module.exports = {
         background: "var(--background)",
         foreground: "var(--foreground)",
       },
+      screens: {
+        xxl: "1550px", // Custom screen size for 1550px and larger
+      },
     },
   },
   plugins: [],

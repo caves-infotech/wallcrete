@@ -198,6 +198,7 @@ export const contacts = [
     name: "Peter B. Parker",
     phoneNumber: "+9133445566",
     role: "client",
+    group: "groupid1",
     profilePicture:
       "https://render.fineartamerica.com/images/rendered/search/print/8/8/break/images/artworkimages/medium/2/shaken-not-stirred-peter-ruck.jpg", // Replace with a valid image URL
     lastMessage: {
@@ -211,6 +212,7 @@ export const contacts = [
     name: "Bruce Wayne",
     phoneNumber: "+9187654321",
     role: "owner",
+    group: "groupid1",
     profilePicture:
       "https://pixels.com/featured/red-moon-night-tithi-luadthong.html", // Replace with a valid image URL
     lastMessage: {
@@ -224,6 +226,7 @@ export const contacts = [
     name: "Clark Kent",
     phoneNumber: "+9198765432",
     role: "client",
+    group: "goupuid1",
     profilePicture: "https://www.pexels.com/photo/345678", // Replace with a valid image URL
     lastMessage: {
       text: "Don't forget our plans!",
@@ -236,6 +239,7 @@ export const contacts = [
     name: "Diana Prince",
     phoneNumber: "+9133445566",
     role: "client",
+    group: "groupid2",
     profilePicture: "https://www.pexels.com/photo/456789", // Replace with a valid image URL
     lastMessage: {
       text: "See you later!",
@@ -248,6 +252,7 @@ export const contacts = [
     name: "Peter Parker",
     phoneNumber: "+9176543210",
     role: "employee",
+    group: "groupid2",
     profilePicture: "https://www.pexels.com/photo/567890", // Replace with a valid image URL
     lastMessage: {
       text: "Hey, did you get my message?",
@@ -260,6 +265,7 @@ export const contacts = [
     name: "Wade Wilson",
     phoneNumber: "+9198765432",
     role: "consultant",
+    group: "groupid2",
     profilePicture: "https://www.pexels.com/photo/678901", // Replace with a valid image URL
     lastMessage: {
       text: "Just checking in!",
@@ -272,6 +278,7 @@ export const contacts = [
     name: "Natasha Romanoff",
     phoneNumber: "+9112345678",
     role: "owner",
+    group: "groupid2",
     profilePicture: "https://www.pexels.com/photo/789012", // Replace with a valid image URL
     lastMessage: {
       text: "See you at the meeting.",
@@ -284,6 +291,7 @@ export const contacts = [
     name: "Steve Rogers",
     phoneNumber: "+9198765432",
     role: "employee",
+    group: "groupid2",
     profilePicture: "https://www.pexels.com/photo/890123", // Replace with a valid image URL
     lastMessage: {
       text: "Are we still on for lunch?",
@@ -296,6 +304,7 @@ export const contacts = [
     name: "Tony Stark",
     phoneNumber: "+9123456789",
     role: "consultant",
+    group: "goupuid3",
     profilePicture: "https://www.pexels.com/photo/901234", // Replace with a valid image URL
     lastMessage: {
       text: "Check your emails.",
@@ -308,6 +317,7 @@ export const contacts = [
     name: "Bruce Banner",
     phoneNumber: "+9187654321",
     role: "consultant",
+    group: "groupid3",
     profilePicture: "https://www.pexels.com/photo/012345", // Replace with a valid image URL
     lastMessage: {
       text: "Let's discuss the project.",
@@ -319,7 +329,8 @@ export const contacts = [
     id: "11",
     name: "Barry Allen",
     phoneNumber: "+9112345678",
-    role: "vendor",
+    role: "supplier",
+    group: "groupid3",
     profilePicture: "https://www.pexels.com/photo/123456", // Replace with a valid image URL
     lastMessage: {
       text: "I'm on my way!",
@@ -332,6 +343,7 @@ export const contacts = [
     name: "Hal Jordan",
     phoneNumber: "+9198765432",
     role: "employee",
+    group: "",
     profilePicture: "https://www.pexels.com/photo/234567", // Replace with a valid image URL
     lastMessage: {
       text: "Can you send me the files?",
