@@ -6,6 +6,8 @@ import "../styles.css";
 
 const Floors = ({ isReversed }) => {
   const [btnDropdown, setBtnDropdown] = useState(false);
+  const [selectedFloor, setSelectedFloor] = useState(""); // Track selected floor
+  const [selectedDesign, setSelectedDesign] = useState(null); // Track design for selected floor
   const [basementFloors, setBasementFloors] = useState(["B-1", "B-2"]);
   const [upperFloors, setUpperFloors] = useState(["1-F", "2-F"]);
   const scrollContainerLeftRef = useRef();
@@ -28,6 +30,7 @@ const Floors = ({ isReversed }) => {
       });
     }
   };
+
   const scrollLeftRContainer = () => {
     if (scrollContainerLeftRef.current) {
       scrollContainerLeftRef.current.scrollBy({
@@ -46,8 +49,17 @@ const Floors = ({ isReversed }) => {
     }
   };
 
+  // Function to handle floor click
   const handleClick = (floor) => {
     console.log(`You clicked on ${floor}`);
+    setSelectedFloor(floor); // Update selected floor
+    setSelectedDesign(null); // Reset design when new floor is selected
+  };
+
+  // Function to handle design click
+  const handleDesignClick = (design) => {
+    console.log(`You clicked on design: ${design.name}`);
+    setSelectedDesign(design.name); // Set design for the selected floor
   };
 
   const addBasementFloor = () => {
@@ -66,7 +78,7 @@ const Floors = ({ isReversed }) => {
   };
 
   return (
-    <div className="w-[80vw]  md:w-[50vw] p-2 border-2 border-gray-200 shadow-lg rounded-lg mt-2 md:-ml-3">
+    <div className="w-[80vw]  md:w-full p-1">
       <div className="w-full h-12 bg-white rounded-md flex items-center justify-center shadow-md gap-1">
         <button
           className="w-11 h-10 border border-slate-500 rounded-md"
@@ -100,7 +112,9 @@ const Floors = ({ isReversed }) => {
           {basementFloors.map((floor, index) => (
             <button
               key={index}
-              className="w-12 flex-shrink-0 border border-slate-500 rounded-md"
+              className={`w-12 flex-shrink-0 border border-slate-500 rounded-md ${
+                selectedFloor === floor ? "bg-gray-300" : ""
+              }`}
               onClick={() => handleClick(floor)}
             >
               {floor}
@@ -156,7 +170,9 @@ const Floors = ({ isReversed }) => {
           {upperFloors.map((floor, index) => (
             <button
               key={index}
-              className="w-12 flex-shrink-0 border border-slate-500 rounded-md"
+              className={`w-12 flex-shrink-0 border border-slate-500 rounded-md ${
+                selectedFloor === floor ? "bg-gray-300" : ""
+              }`}
               onClick={() => handleClick(floor)}
             >
               {floor}
@@ -198,7 +214,11 @@ const Floors = ({ isReversed }) => {
         {/* Child div 1 */}
         <div className="flex flex-col flex-wrap h-72  w-52  md:flex-row md:flex- items-start justify-start my-2 lg:m-0">
           {predefinedDesigns.map((data) => (
-            <CustomButton key={data.id} name={data.name} />
+            <CustomButton
+              key={data.id}
+              name={data.name}
+              onClick={() => handleDesignClick(data)}
+            />
           ))}
 
           {/* Dropdown menu */}
@@ -206,7 +226,10 @@ const Floors = ({ isReversed }) => {
             <ul className="z-10 bg-white border border-gray-300 rounded-md shadow-lg w-full">
               {dropdownButtons.map((data) => (
                 <li key={data.id} className="text-xs">
-                  <CustomButton name={data.name} />
+                  <CustomButton
+                    name={data.name}
+                    onClick={() => handleDesignClick(data)}
+                  />
                 </li>
               ))}
             </ul>
@@ -214,7 +237,13 @@ const Floors = ({ isReversed }) => {
         </div>
 
         {/* Child div 2 */}
-        <div className="border-2 border-gray-300 rounded-md w-full h-full p-1"></div>
+        <div className="border-2 border-gray-300 rounded-md w-full h-full p-1 flex items-center justify-center">
+          {selectedFloor
+            ? selectedDesign
+              ? `Floor: ${selectedFloor}, Design: ${selectedDesign}`
+              : `Select a design for ${selectedFloor}`
+            : "Select a floor to see details"}
+        </div>
       </div>
     </div>
   );

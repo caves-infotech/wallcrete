@@ -27,7 +27,7 @@ const Inbox = () => {
   });
 
   return (
-    <div className="w-full p-4">
+    <div className="w-full p-3">
       <div className="w-full h-10 mb-2">
         {/* Search bar */}
         <button className="flex items-center justify-start h-10 w-full p-2 border border-gray-300 rounded-lg hover:bg-gray-100 transition-colors duration-300">
@@ -79,9 +79,9 @@ const Inbox = () => {
               Groups
             </option>
             <option value="">Create a group</option>
-            <option value="groupid1">Group 1</option>
-            <option value="groupid2">Group 2</option>
-            <option value="groupid3">Group 3</option>
+            <option value="groupid1">Project 1</option>
+            <option value="groupid2">Project 2</option>
+            <option value="groupid3">Project 3</option>
           </select>
         </div>
       </div>

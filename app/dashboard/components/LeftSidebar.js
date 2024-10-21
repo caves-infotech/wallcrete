@@ -64,7 +64,7 @@ const LeftSidebar = ({ selectedComponent }) => {
         </button>
       </div>
       <aside
-        className={` w-[85vw] h-[88vh] mt-16 md:mt-6 rounded-md ml-14 lg:ml-0 md:h-[85vh] lg:block lg:fixed lg:w-1/4 lg:h-[88vh] border-2 border-gray-300 md:rounded-xl m-2 top-12 shadow-lg transition-all duration-500 ${
+        className={`hidden w-[85vw] h-[88vh] mt-16 md:mt-6 rounded-md ml-14 lg:ml-0 md:h-[85vh] lg:block lg:fixed lg:w-1/4 lg:h-[88vh] border-2 border-gray-300 md:rounded-xl m-2 top-12 shadow-lg transition-all duration-500 ${
           sidebar ? "-left-96 -z-10" : "left-16 z-10"
         }`}
       >

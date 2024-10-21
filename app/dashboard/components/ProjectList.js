@@ -293,7 +293,7 @@ const ProjectList = () => {
         </div>
       </div>
       {/* Add project */}
-      <div className="w-[80%] m:w-[85%] ml-4 h-8 m:h-10 -mt-8 m:-mt-7 ">
+      <div className="w-[80%] m:w-[85%] lg:w-[85%] ml-4 h-8 m:h-10 -mt-8 m:-mt-7 ">
         <button
           className="w-full h-8 border-2 border-gray-300 rounded-lg "
           onClick={handlePopupButtonClick}

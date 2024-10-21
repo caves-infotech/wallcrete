@@ -203,12 +203,15 @@ const Popups = ({ isModalOpen, closeModal, type, onSubmit }) => {
       case "createProject":
         return (
           <>
-            <form className="p-4 md:p-5" onSubmit={handleSubmit}>
+            <form
+              className="p-4 md:p-5 bg-white shadow-md rounded-lg"
+              onSubmit={handleSubmit}
+            >
               <div className="grid gap-4 mb-4 w-full">
                 <div className="col-span-1">
                   <label
                     htmlFor="projectName"
-                    className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                    className="block mb-2 text-sm font-medium text-gray-800"
                   >
                     Project Name
                   </label>
@@ -218,7 +221,7 @@ const Popups = ({ isModalOpen, closeModal, type, onSubmit }) => {
                     id="projectName"
                     value={projectName}
                     onChange={(e) => setProjectName(e.target.value)}
-                    className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:text-white"
+                    className="bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5"
                     placeholder="Project name"
                     required
                   />
@@ -228,16 +231,16 @@ const Popups = ({ isModalOpen, closeModal, type, onSubmit }) => {
                   <div>
                     <label
                       htmlFor="assignMembers"
-                      className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                      className="block mb-2 text-sm font-medium text-gray-800"
                     >
-                      Admin members
+                      Admin Members
                     </label>
                     <select
                       name="assignMembers"
                       id="assignMembers"
                       multiple
                       onChange={(e) => handleMemberChange(e, "member")}
-                      className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:text-white"
+                      className="bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5"
                     >
                       {predefinedMembers
                         .filter((member) => member.role === "member")
@@ -252,7 +255,7 @@ const Popups = ({ isModalOpen, closeModal, type, onSubmit }) => {
                   <div>
                     <label
                       htmlFor="assignConsultants"
-                      className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                      className="block mb-2 text-sm font-medium text-gray-800"
                     >
                       Consultants
                     </label>
@@ -261,7 +264,7 @@ const Popups = ({ isModalOpen, closeModal, type, onSubmit }) => {
                       id="assignConsultants"
                       multiple
                       onChange={(e) => handleMemberChange(e, "consultant")}
-                      className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:text-white"
+                      className="bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5"
                     >
                       {predefinedMembers
                         .filter((member) => member.role === "consultant")
@@ -276,7 +279,7 @@ const Popups = ({ isModalOpen, closeModal, type, onSubmit }) => {
                   <div>
                     <label
                       htmlFor="assignOwners"
-                      className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                      className="block mb-2 text-sm font-medium text-gray-800"
                     >
                       Owners
                     </label>
@@ -285,7 +288,7 @@ const Popups = ({ isModalOpen, closeModal, type, onSubmit }) => {
                       id="assignOwners"
                       multiple
                       onChange={(e) => handleMemberChange(e, "owner")}
-                      className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:text-white"
+                      className="bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5"
                     >
                       {predefinedMembers
                         .filter((member) => member.role === "owner")
@@ -299,20 +302,20 @@ const Popups = ({ isModalOpen, closeModal, type, onSubmit }) => {
                 </div>
 
                 <div className="col-span-1 mt-2">
-                  <h4 className="text-sm font-medium text-gray-900 dark:text-white">
+                  <h4 className="text-sm font-medium text-gray-800">
                     Selected Members
                   </h4>
                   <div className="col-span-1 mt-2">
-                    <table className="min-w-full mt-2 border border-white border-b-2">
+                    <table className="min-w-full mt-2 border border-gray-200">
                       <thead>
-                        <tr className="bg-gray-200 dark:bg-gray-700">
-                          <th className="px-4 py-2 text-left text-sm font-medium text-gray-900 dark:text-white">
+                        <tr className="bg-gray-100">
+                          <th className="px-4 py-2 text-left text-sm font-medium text-gray-800">
                             Name
                           </th>
-                          <th className="px-4 py-2 text-left text-sm font-medium text-gray-900 dark:text-white">
+                          <th className="px-4 py-2 text-left text-sm font-medium text-gray-800">
                             Role
                           </th>
-                          <th className="px-4 py-2 text-left text-sm font-medium text-gray-900 dark:text-white">
+                          <th className="px-4 py-2 text-left text-sm font-medium text-gray-800">
                             Actions
                           </th>
                         </tr>
@@ -324,36 +327,31 @@ const Popups = ({ isModalOpen, closeModal, type, onSubmit }) => {
                           ...selectedConsultants,
                           ...selectedOwners,
                         ].map((id) => {
-                          // Find the member by ID
                           const member = predefinedMembers.find(
                             (member) => member.id === id
                           );
 
-                          // Only render the row if the member exists
                           return member ? (
-                            <tr
-                              key={id}
-                              className="border-b dark:border-gray-600"
-                            >
-                              <td className="px-4 py-2 text-sm text-gray-900 dark:text-white">
+                            <tr key={id} className="border-b border-gray-200">
+                              <td className="px-4 py-2 text-sm text-gray-800">
                                 {member.name}
                               </td>
-                              <td className="px-4 py-2 text-sm text-gray-900 dark:text-white">
+                              <td className="px-4 py-2 text-sm text-gray-800">
                                 {member.role}
                               </td>
-                              <td className="px-4 py-2 text-sm text-gray-900 dark:text-white">
+                              <td className="px-4 py-2 text-sm text-gray-800">
                                 <button
                                   type="button"
                                   onClick={() =>
                                     handleRemoveMember(id, member.role)
                                   }
-                                  className="text-red-600 hover:text-red-800 dark:text-red-400 dark:hover:text-red-200"
+                                  className="text-red-600 hover:text-red-800"
                                 >
                                   &times; Remove
                                 </button>
                               </td>
                             </tr>
-                          ) : null; // Return null if member is not found
+                          ) : null;
                         })}
                       </tbody>
                     </table>
@@ -362,7 +360,7 @@ const Popups = ({ isModalOpen, closeModal, type, onSubmit }) => {
 
                 <button
                   type="submit"
-                  className="text-white inline-flex items-center bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700"
+                  className="text-white inline-flex items-center bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
                 >
                   Create Project
                 </button>
@@ -420,9 +418,9 @@ const Popups = ({ isModalOpen, closeModal, type, onSubmit }) => {
           className="fixed inset-0 z-999999999 flex justify-center items-center bg-gray-900 bg-opacity-75"
         >
           <div className="relative p-4 w-full max-w-[60rem] max-h-[80%] z-[1000]">
-            <div className="relative bg-white rounded-lg shadow dark:bg-gray-700">
+            <div className="relative bg-gray-100  rounded-lg shadow ">
               <div className="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600">
-                <h3 className="text-xl font-semibold text-gray-900 dark:text-white">
+                <h3 className="text-xl font-semibold text-black ">
                   {getTitle()}
                 </h3>
 
