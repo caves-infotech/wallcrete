@@ -17,8 +17,8 @@ const Contacts = ({ data, selectedContact, setSelectedContact }) => {
         className="flex items-center justify-between gap-4 p-2 border-b-2 border-b-gray-200 hover:bg-gray-200 cursor-pointer"
         onClick={handleContactClick} // Handle click
       >
-        <div className="flex items-center gap-4">
-          <figure className="w-14 h-14 border rounded-full flex items-center justify-center">
+        <div className="w-full flex items-center gap-2">
+          <figure className="w-[25%] h-14 border rounded-full flex items-center justify-center">
             <Image
               src={logo}
               width={100}
@@ -27,7 +27,7 @@ const Contacts = ({ data, selectedContact, setSelectedContact }) => {
               className="w-[90%] h-[90%] rounded-full object-cover"
             />
           </figure>
-          <div className="w-[90%] flex flex-col">
+          <div className="w-[60%] flex flex-col">
             <div>
               <p className="text-sm font-medium">{data.name || ""}</p>
             </div>
@@ -36,7 +36,7 @@ const Contacts = ({ data, selectedContact, setSelectedContact }) => {
                 {data.lastMessage?.text || "No message"}
               </p>
             </div>
-            <h3 className="text-xs text-gray-400">
+            <h3 className="text-xs text-gray-400 truncate">
               {data.lastMessage?.timestamp
                 ? new Date(data.lastMessage.timestamp)
                     .toLocaleTimeString([], {
@@ -48,14 +48,14 @@ const Contacts = ({ data, selectedContact, setSelectedContact }) => {
                 : ""}
             </h3>
           </div>
-          <button className="flex items-center justify-end relative ">
+          <button className="w-[9%] h-[5%] flex items-center justify-center relative ">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
               viewBox="0 0 24 24"
               strokeWidth="1.5"
               stroke="currentColor"
-              class="size-6"
+              className="size-8"
             >
               <path
                 strokeLinecap="round"
@@ -175,7 +175,7 @@ const Contacts = ({ data, selectedContact, setSelectedContact }) => {
           </div>
           <div className="w-full h-10  my-1">
             <button className="w-10 h-10 px-2 py-1 border border-gray-300 rounded-md mx-1 ml-2">
-              btn
+              btn!
             </button>
             <button className="w-10 h-10 px-2 py-1 border border-gray-300 rounded-md mx-1">
               btn

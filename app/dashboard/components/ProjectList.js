@@ -3,9 +3,11 @@ import React, { useRef, useState } from "react";
 import ProjectCard from "./ProjectCard";
 import { predefinedProjects } from "./data";
 import "../styles.css";
+import Popups from "./Popup";
 
 const ProjectList = () => {
   const [searchTerm, setSearchTerm] = useState("");
+  const [isPopupVisible, setIsPopupVisible] = useState(false);
   const [selectedType] = useState(["All", "Architect", "Interior", "Layout"]);
   const [selectedTypeFilter, setSelectedTypeFilter] = useState("All"); // Use this for filtering
   const [selectedSubType, setSelectedSubType] = useState("");
@@ -18,6 +20,15 @@ const ProjectList = () => {
   const containerRef = useRef(null);
   const scrollContainerRef = useRef(null);
   const [toggle, setToggle] = useState(true);
+
+  // Show the Popups component when the button is clicked
+  const handlePopupButtonClick = () => {
+    setIsPopupVisible(true);
+  };
+
+  const closePopupModal = () => {
+    setIsPopupVisible(false);
+  };
 
   // Project cards toggle and their selection
   const handleTogglee = (projectId) => {
@@ -186,7 +197,7 @@ const ProjectList = () => {
             ))}
 
             {/* Conditionally render input field or SVG */}
-            <li className="w-24 p-2 flex justify-center items-center">
+            <li className="w-24 p-2 flex justify-center items-center border-b-gray-800">
               {isInputVisible ? (
                 <input
                   type="text"
@@ -194,7 +205,7 @@ const ProjectList = () => {
                   value={newItem}
                   onChange={(e) => setNewItem(e.target.value)} // Update newItem state
                   onKeyDown={addNewItem} // Add item on Enter key press
-                  className="px-6 border-none rounded-lg w-28 focus:outline-none"
+                  className="px-6 mt-[4px] w-28 focus:outline-none bg-[#f5f7f8] border-b-4 border-b-gray-400"
                   ref={inputRef} // Attach ref for focusing
                 />
               ) : (
@@ -282,11 +293,19 @@ const ProjectList = () => {
         </div>
       </div>
       {/* Add project */}
-      <div className="w-[85%] ml-4 h-10 -mt-7">
-        <button className="w-full h-8 border-2 border-gray-300 rounded-lg ">
+      <div className="w-[80%] m:w-[85%] ml-4 h-8 m:h-10 -mt-8 m:-mt-7 ">
+        <button
+          className="w-full h-8 border-2 border-gray-300 rounded-lg "
+          onClick={handlePopupButtonClick}
+        >
           + Add project
         </button>
       </div>
+      <Popups
+        isModalOpen={isPopupVisible}
+        closeModal={closePopupModal}
+        type={"createProject"}
+      />
     </div>
   );
 };

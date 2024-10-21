@@ -11,8 +11,8 @@ const VerticalMenu = ({ onComponentSelect }) => {
   };
   return (
     <div className="fixed top-20 lg:top-[4.5rem] h-[88vh] rounded-lg bg-[#F5F7F8]">
-      <div className="hidden lg:block h-11 w-10"></div>
-      <div className="h-[70vh] mt-0 lg:h-[68vh] overflow-y-auto no-scrollbar px-2 lg:mt-1 ">
+      <div className="hidden lg:block h-11 w-10 ml-[14%]"></div>
+      <div className="h-[75vh] md:h-[70vh] mt-0 lg:h-[68vh] overflow-y-auto no-scrollbar px-2 lg:mt-1 ">
         <ul className="flex flex-col items-center justify-center gap-6">
           <li
             onClick={() => handleComponentSelect("ProjectList")}

@@ -44,7 +44,7 @@ const LeftSidebar = ({ selectedComponent }) => {
       <div>
         {/* hamburgor menu */}
         <button
-          className="hidden md:block fixed left-5 top-[4.4rem] z-50"
+          className="md:block fixed top-4 left-1 md:left-5 md:top-[4.4rem] z-50"
           onClick={handleSlide}
         >
           <svg
@@ -64,7 +64,7 @@ const LeftSidebar = ({ selectedComponent }) => {
         </button>
       </div>
       <aside
-        className={`hidden w-[85vw] mt-6 rounded-md ml-14 lg:ml-0 h-[85vh] lg:block lg:fixed lg:w-1/4 lg:h-[88vh] border-2 border-gray-300 md:rounded-xl m-2 top-12 shadow-lg transition-all duration-500 ${
+        className={` w-[85vw] h-[88vh] mt-16 md:mt-6 rounded-md ml-14 lg:ml-0 md:h-[85vh] lg:block lg:fixed lg:w-1/4 lg:h-[88vh] border-2 border-gray-300 md:rounded-xl m-2 top-12 shadow-lg transition-all duration-500 ${
           sidebar ? "-left-96 -z-10" : "left-16 z-10"
         }`}
       >

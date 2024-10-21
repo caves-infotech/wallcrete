@@ -15,8 +15,8 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="lg:flex xl:fixed flex w-full h-14 p-2 border-2 shadow-md rounded-md items-center justify-start bg-white z-20">
-      <div className="relative h-12 w-32">
+    <nav className="fixed lg:flex  flex w-full h-14 p-2 border-2 shadow-md rounded-md items-center justify-start bg-white z-20">
+      <div className="relative h-10 w-44 ml-8">
         <Image
           src={logo}
           alt="wallcreat Logo"
@@ -25,7 +25,6 @@ const Navbar = () => {
         />
       </div>
 
-      <h1 className="text-xl text-[#495E57] ml-2 md:hidden">wallcreat</h1>
       <div
         className="mr-2 lg:bg-transparent lg:flex lg:h-10 w-10 rounded-full ml-auto lg:mr-6 items-center justify-center cursor-pointer"
         onMouseEnter={() => handleMouseEnter("login")}

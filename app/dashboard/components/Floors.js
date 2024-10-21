@@ -66,7 +66,7 @@ const Floors = ({ isReversed }) => {
   };
 
   return (
-    <div className="w-[50vw] p-2 border-2 border-gray-200 shadow-lg rounded-lg mt-2 -ml-3">
+    <div className="w-[80vw]  md:w-[50vw] p-2 border-2 border-gray-200 shadow-lg rounded-lg mt-2 md:-ml-3">
       <div className="w-full h-12 bg-white rounded-md flex items-center justify-center shadow-md gap-1">
         <button
           className="w-11 h-10 border border-slate-500 rounded-md"
@@ -191,12 +191,12 @@ const Floors = ({ isReversed }) => {
       </div>
 
       <div
-        className={`flex justify-between w-full h-[450px] xxl:h-[800px] relative my-2 ${
+        className={`flex flex-col md:flex-row justify-between w-full h-[450px] xxl:h-[800px] relative my-2 ${
           isReversed ? "flex-row-reverse" : ""
         }`}
       >
         {/* Child div 1 */}
-        <div className="w-52 flex flex-col items-start justify-start">
+        <div className="flex flex-col flex-wrap h-72  w-52  md:flex-row md:flex- items-start justify-start my-2 lg:m-0">
           {predefinedDesigns.map((data) => (
             <CustomButton key={data.id} name={data.name} />
           ))}

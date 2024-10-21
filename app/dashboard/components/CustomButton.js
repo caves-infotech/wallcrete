@@ -3,7 +3,7 @@ import React from "react";
 
 const CustomButton = ({ name, icon, onClick }) => {
   return (
-    <div className="w-11/12 mx-auto mt-1 text-[13px] font-medium">
+    <div className="w-4/5 md:w-11/12 mx-auto mt-1 text-[13px] font-medium">
       <button
         onClick={onClick}
         className={`border w-11/12 h-[37.5px] rounded-xl flex items-center justify-between p-2 transform transition-transform hover:scale-105 hover:shadow-xl shadow-lg bg-gradient-to-r from-gray-500 to-gray-600`}
