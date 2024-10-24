@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import { useMyContext } from "./Context";
 import Floors from "./Floors";
+import BOQs from "./BOQs";
 
 const ProjectDetail = () => {
   const { data } = useMyContext();
@@ -24,19 +25,23 @@ const ProjectDetail = () => {
       ),
     },
     {
-      label: "3D Visuals",
+      label: "Visuals",
       content: (
         <div className="w-[77vw] md:w-[50vw] h-[542px]  p-2  mt-4"></div>
       ),
     },
 
     {
-      label: "Site pics",
+      label: "Actuals",
       content: <div className="w-[77vw] md:w-full lg:mt-2 lg:ml-auto "></div>,
     },
     {
       label: "BOQ's",
-      content: <div className="w-[77vw] md:w-full lg:mt-2 lg:ml-auto "></div>,
+      content: (
+        <div className="w-[77vw] h-[78vh] md:w-full lg:mt-2 lg:ml-auto ">
+          <BOQs />
+        </div>
+      ),
     },
     {
       label: "Doc's",

@@ -79,15 +79,15 @@ const Floors = ({ isReversed }) => {
 
   return (
     <div className="w-[80vw]  md:w-full p-1">
-      <div className="w-full h-12 bg-white rounded-md flex items-center justify-center shadow-md gap-1">
+      <div className="w-full h-12 bg-gradient-to-r from-gray-50 to-gray-100 rounded-lg flex items-center justify-center shadow-lg gap-2 p-2">
         <button
-          className="w-11 h-10 border border-slate-500 rounded-md"
+          className="w-11 h-10 border border-gray-300 rounded-lg hover:bg-blue-500 hover:text-white transition duration-300 transform hover:scale-105"
           onClick={addBasementFloor}
         >
           +
         </button>
         <button
-          className="w-11 h-10 rounded-md flex justify-center items-center"
+          className="w-11 h-10 rounded-lg flex justify-center items-center hover:bg-gray-200 transition duration-300 transform hover:scale-105"
           onClick={scrollLeftLContainer}
         >
           <svg
@@ -96,7 +96,7 @@ const Floors = ({ isReversed }) => {
             viewBox="0 0 24 24"
             stroke-width="1.5"
             stroke="currentColor"
-            className="size-5"
+            className="w-6 h-6"
           >
             <path
               stroke-linecap="round"
@@ -105,15 +105,18 @@ const Floors = ({ isReversed }) => {
             />
           </svg>
         </button>
+
         <div
-          className="mx-1 rounded-md p-1 w-60 h-10  flex items-start overflow-y-hidden overflow-x-scroll  flex-row-reverse gap-1"
+          className="mx-1 rounded-lg p-1 w-60 h-10 flex items-center overflow-y-hidden overflow-x-scroll scrollbar-hide"
           ref={scrollContainerLeftRef}
         >
           {basementFloors.map((floor, index) => (
             <button
               key={index}
-              className={`w-12 flex-shrink-0 border border-slate-500 rounded-md ${
-                selectedFloor === floor ? "bg-gray-300" : ""
+              className={`w-12 flex-shrink-0 border border-gray-300 rounded-lg transition duration-300 transform hover:scale-105 ${
+                selectedFloor === floor
+                  ? "bg-blue-500 text-white shadow-lg"
+                  : "hover:bg-gray-200"
               }`}
               onClick={() => handleClick(floor)}
             >
@@ -121,57 +124,67 @@ const Floors = ({ isReversed }) => {
             </button>
           ))}
         </div>
+
         <button
-          className="w-11 h-10 rounded-md flex justify-center items-center"
+          className="w-11 h-10 rounded-lg flex justify-center items-center hover:bg-gray-200 transition duration-300 transform hover:scale-105"
           onClick={scrollLeftRContainer}
         >
           <svg
-            className="size-5"
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            strokeWidth="1.5"
-            stroke="currentColor"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="m8.25 4.5 7.5 7.5-7.5 7.5"
-            />
-          </svg>
-        </button>
-        <button className="w-20 h-10 border border-slate-500 rounded-md">
-          GF
-        </button>
-
-        <button
-          className="w-11 h-10 rounded-md flex justify-center items-center"
-          onClick={scrollRightLContainer}
-        >
-          <svg
+            className="w-6 h-6"
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
             viewBox="0 0 24 24"
             stroke-width="1.5"
             stroke="currentColor"
-            className="size-5"
           >
             <path
               stroke-linecap="round"
               stroke-linejoin="round"
-              d="M15.75 19.5 8.25 12l7.5-7.5"
+              d="M8.25 4.5l7.5 7.5-7.5 7.5"
             />
           </svg>
         </button>
+
+        <button
+          className="w-20 h-10 border border-gray-300 rounded-lg hover:bg-blue-500 hover:text-white transition duration-300 transform hover:scale-105 shadow-sm"
+          onClick={() => {
+            handleClick("GF");
+          }}
+        >
+          GF
+        </button>
+
+        <button
+          className="w-11 h-10 rounded-lg flex justify-center items-center hover:bg-gray-200 transition duration-300 transform hover:scale-105"
+          onClick={scrollRightLContainer}
+        >
+          <svg
+            className="w-6 h-6"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M15.75 19.5L8.25 12l7.5-7.5"
+            />
+          </svg>
+        </button>
+
         <div
-          className="mx-1 rounded-md p-1 w-60 h-10 items-start flex gap-1 overflow-y-hidden overflow-x-scroll "
+          className="mx-1 rounded-lg p-1 w-60 h-10 flex items-center overflow-y-hidden overflow-x-scroll scrollbar-hide"
           ref={scrollContainerRightRef}
         >
           {upperFloors.map((floor, index) => (
             <button
               key={index}
-              className={`w-12 flex-shrink-0 border border-slate-500 rounded-md ${
-                selectedFloor === floor ? "bg-gray-300" : ""
+              className={`w-12 flex-shrink-0 border border-gray-300 rounded-lg transition duration-300 transform hover:scale-105 ${
+                selectedFloor === floor
+                  ? "bg-blue-500 text-white shadow-lg"
+                  : "hover:bg-gray-200"
               }`}
               onClick={() => handleClick(floor)}
             >
@@ -179,27 +192,9 @@ const Floors = ({ isReversed }) => {
             </button>
           ))}
         </div>
+
         <button
-          className="w-11 h-10 rounded-md flex justify-center items-center"
-          onClick={scrollRightRContainer}
-        >
-          <svg
-            className="size-5"
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            strokeWidth="1.5"
-            stroke="currentColor"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="m8.25 4.5 7.5 7.5-7.5 7.5"
-            />
-          </svg>
-        </button>
-        <button
-          className="w-11 h-10 border border-slate-500 rounded-md"
+          className="w-11 h-10 border border-gray-300 rounded-lg hover:bg-blue-500 hover:text-white transition duration-300 transform hover:scale-105"
           onClick={addUpperFloor}
         >
           +
