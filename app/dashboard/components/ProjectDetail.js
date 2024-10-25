@@ -9,15 +9,7 @@ const ProjectDetail = () => {
   const [activeButton, setActiveButton] = useState("All");
   const buttons = [
     {
-      label: "All",
-      content: (
-        <div className="w-[80vw] md:w-[52vw] h-[542px]  p-2 hadow-lg rounded-lg mt-0 lg:mt-4 flex items-center justify-center xxl:mt-6">
-          This is all div
-        </div>
-      ),
-    },
-    {
-      label: "Drawing's",
+      label: "Drawing",
       content: (
         <div className="w-[77vw] md:w-full lg:mt-2">
           <Floors isReversed={false} />
@@ -36,7 +28,7 @@ const ProjectDetail = () => {
       content: <div className="w-[77vw] md:w-full lg:mt-2 lg:ml-auto "></div>,
     },
     {
-      label: "BOQ's",
+      label: "Orders",
       content: (
         <div className="w-[77vw] h-[78vh] md:w-full lg:mt-2 lg:ml-auto ">
           <BOQs />
@@ -44,7 +36,15 @@ const ProjectDetail = () => {
       ),
     },
     {
-      label: "Doc's",
+      label: "Doc",
+      content: <div className=" w-full h-[78vh]"></div>,
+    },
+    {
+      label: "Tasks",
+      content: <div className=" w-full h-[78vh]"></div>,
+    },
+    {
+      label: "Discussion",
       content: <div className=" w-full h-[78vh]"></div>,
     },
   ];
@@ -56,7 +56,7 @@ const ProjectDetail = () => {
           {buttons.map((btn) => (
             <button
               key={btn.label}
-              className={`w-20 md:w-28 h-full  text-slate-800 text-sm  transition-all
+              className={`w-20 md:w-24 h-full  text-slate-800 text-sm  transition-all
               ${
                 activeButton === btn.label
                   ? "border-b-4 border-b-slate-500"
