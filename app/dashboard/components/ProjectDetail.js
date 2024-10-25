@@ -28,7 +28,7 @@ const ProjectDetail = () => {
       content: <div className="w-[77vw] md:w-full lg:mt-2 lg:ml-auto "></div>,
     },
     {
-      label: "Orders",
+      label: "Order",
       content: (
         <div className="w-[77vw] h-[78vh] md:w-full lg:mt-2 lg:ml-auto ">
           <BOQs />
@@ -68,7 +68,7 @@ const ProjectDetail = () => {
             </button>
           ))}
         </div>
-        <div className="w-full h-[90%] mt-1 p-1 flex items-center justify-center">
+        <div className="w-full h-[90%] mt-1  flex items-center justify-center">
           {buttons.find((btn) => btn.label === activeButton)?.content}
         </div>
       </div>

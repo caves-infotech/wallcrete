@@ -10,13 +10,13 @@ const VerticalMenu = ({ onComponentSelect }) => {
     onComponentSelect(component);
   };
   return (
-    <div className="fixed top-20 lg:top-[4.5rem] h-[88vh] rounded-lg bg-[#F5F7F8]">
-      <div className="hidden lg:block h-11 w-10 ml-[14%]"></div>
+    <div className="fixed top-20 lg:top-[4.5rem] lg:left-2 h-[88vh] rounded-lg bg-[#F5F7F8]">
+      <div className="hidden lg:block h-14 w-14 ml-[14%]"></div>
       <div className="h-[75vh] md:h-[70vh] mt-0 lg:h-[68vh] overflow-y-auto no-scrollbar px-2 lg:mt-1 ">
         <ul className="flex flex-col items-center justify-center gap-6">
           <li
             onClick={() => handleComponentSelect("ProjectList")}
-            className="relative w-10 pt-1 h-10 border  flex flex-col items-center justify-center shadow-md bg-gray-100 text-slate-600 transition-transform transform hover:scale-110 hover:shadow-lg cursor-pointer rounded-md "
+            className="relative w-14 pt-1 h-14 border  flex flex-col items-center justify-center shadow-md bg-gray-100 text-slate-600 transition-transform transform hover:scale-110 hover:shadow-lg cursor-pointer rounded-md "
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -37,7 +37,7 @@ const VerticalMenu = ({ onComponentSelect }) => {
           </li>
           <li
             onClick={() => handleComponentSelect("ProjectList")}
-            className="relative w-10 pt-1 h-10 border  flex flex-col items-center justify-center shadow-md bg-gray-100 text-slate-600 transition-transform transform hover:scale-110 hover:shadow-lg cursor-pointer rounded-md "
+            className="relative w-14 pt-1 h-14 border  flex flex-col items-center justify-center shadow-md bg-gray-100 text-slate-600 transition-transform transform hover:scale-110 hover:shadow-lg cursor-pointer rounded-md "
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -54,11 +54,11 @@ const VerticalMenu = ({ onComponentSelect }) => {
               />
             </svg>
 
-            <h2 className="text-xs">Search</h2>
+            <h2 className="text-[11px]">Search</h2>
           </li>
           <li
             onClick={() => handleComponentSelect("ProjectList")}
-            className="relative w-10 pt-1 h-10 border  flex flex-col items-center justify-center shadow-md bg-gray-100 text-slate-600 transition-transform transform hover:scale-110 hover:shadow-lg cursor-pointer rounded-md "
+            className="relative w-14 pt-1 h-14 border  flex flex-col items-center justify-center shadow-md bg-gray-100 text-slate-600 transition-transform transform hover:scale-110 hover:shadow-lg cursor-pointer rounded-md "
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -75,13 +75,13 @@ const VerticalMenu = ({ onComponentSelect }) => {
               />
             </svg>
 
-            <h2 className="text-xs">Projects</h2>
+            <h2 className="text-[11px]">Projects</h2>
           </li>
 
           <Link href="/dashboard" passHref>
             <li
               onClick={() => handleComponentSelect("ProjectList")}
-              className="relative w-10 pt-1 h-10 border  flex flex-col items-center justify-center shadow-md bg-gray-100 text-slate-600 transition-transform transform hover:scale-110 hover:shadow-lg cursor-pointer rounded-md "
+              className="relative w-14 pt-1 h-14 border  flex flex-col items-center justify-center shadow-md bg-gray-100 text-slate-600 transition-transform transform hover:scale-110 hover:shadow-lg cursor-pointer rounded-lg "
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -98,12 +98,12 @@ const VerticalMenu = ({ onComponentSelect }) => {
                 />
               </svg>
 
-              <h2 className="text-xs">Members</h2>
+              <h2 className="text-[11px]">Members</h2>
             </li>
           </Link>
           <li
             onClick={() => handleComponentSelect("Chat")}
-            className="hidden lg:flex relative w-10 pt-1 h-10 border flex-col items-center justify-center shadow-md bg-gray-100 text-slate-600 transition-transform transform hover:scale-110 hover:shadow-lg cursor-pointer rounded-md "
+            className="hidden lg:flex relative w-14 pt-1 h-14 border flex-col items-center justify-center shadow-md bg-gray-100 text-slate-600 transition-transform transform hover:scale-110 hover:shadow-lg cursor-pointer rounded-md "
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -120,11 +120,11 @@ const VerticalMenu = ({ onComponentSelect }) => {
               />
             </svg>
 
-            <h2 className="text-xs">Chats</h2>
+            <h2 className="text-[11px]">Chats</h2>
           </li>
 
           <Link href="/dashboard" passHref>
-            <li className="relative w-10 pt-1 h-10 border  flex flex-col items-center justify-center shadow-md bg-gray-100 text-slate-600 transition-transform transform hover:scale-110 hover:shadow-lg cursor-pointer rounded-md ">
+            <li className="relative w-14 pt-1 h-14 border  flex flex-col items-center justify-center shadow-md bg-gray-100 text-slate-600 transition-transform transform hover:scale-110 hover:shadow-lg cursor-pointer rounded-md ">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
@@ -139,12 +139,12 @@ const VerticalMenu = ({ onComponentSelect }) => {
                   d="M6 3h12M6 7h12M6 11h12M6 15h12"
                 />
               </svg>
-              <h2 className="text-xs">CRM</h2>
+              <h2 className="text-[11px]">CRM</h2>
             </li>
           </Link>
 
           <Link href="/dashboard" passHref>
-            <li className="relative w-10 pt-1 h-10 border  flex flex-col items-center justify-center shadow-md bg-gray-100 text-slate-600 transition-transform transform hover:scale-110 hover:shadow-lg cursor-pointer rounded-md ">
+            <li className="relative w-14 pt-1 h-14 border  flex flex-col items-center justify-center shadow-md bg-gray-100 text-slate-600 transition-transform transform hover:scale-110 hover:shadow-lg cursor-pointer rounded-md ">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
@@ -160,12 +160,12 @@ const VerticalMenu = ({ onComponentSelect }) => {
                 />
               </svg>
 
-              <h2 className="text-xs">Task</h2>
+              <h2 className="text-[11px]">Task</h2>
             </li>
           </Link>
 
           <Link href="/dashboard" passHref>
-            <li className="relative w-10 pt-1 h-10 border  flex flex-col items-center justify-center shadow-md bg-gray-100 text-slate-600 transition-transform transform hover:scale-110 hover:shadow-lg cursor-pointer rounded-md ">
+            <li className="relative w-14 pt-1 h-14 border  flex flex-col items-center justify-center shadow-md bg-gray-100 text-slate-600 transition-transform transform hover:scale-110 hover:shadow-lg cursor-pointer rounded-md ">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
@@ -181,12 +181,12 @@ const VerticalMenu = ({ onComponentSelect }) => {
                 />
               </svg>
 
-              <h2 className="text-xs">Orders</h2>
+              <h2 className="text-[11px]">Orders</h2>
             </li>
           </Link>
 
           <Link href="/dashboard" passHref>
-            <li className="relative w-10 pt-1 h-10 border  flex flex-col items-center justify-center shadow-md bg-gray-100 text-slate-600 transition-transform transform hover:scale-110 hover:shadow-lg cursor-pointer rounded-md ">
+            <li className="relative w-14 pt-1 h-14 border  flex flex-col items-center justify-center shadow-md bg-gray-100 text-slate-600 transition-transform transform hover:scale-110 hover:shadow-lg cursor-pointer rounded-md ">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
@@ -202,12 +202,12 @@ const VerticalMenu = ({ onComponentSelect }) => {
                 />
               </svg>
 
-              <h2 className="text-xs">Pay</h2>
+              <h2 className="text-[11px]">Pay</h2>
             </li>
           </Link>
 
           <Link href="/documents" passHref>
-            <li className="relative w-10 pt-1 h-10 border  flex flex-col items-center justify-center shadow-md bg-gray-100 text-slate-600 transition-transform transform hover:scale-110 hover:shadow-lg cursor-pointer rounded-md ">
+            <li className="relative w-14 pt-1 h-14 border  flex flex-col items-center justify-center shadow-md bg-gray-100 text-slate-600 transition-transform transform hover:scale-110 hover:shadow-lg cursor-pointer rounded-md ">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
@@ -223,11 +223,11 @@ const VerticalMenu = ({ onComponentSelect }) => {
                 />
               </svg>
 
-              <h2 className="text-xs">Doc&apos;s</h2>
+              <h2 className="text-[11px]">Doc&apos;s</h2>
             </li>
           </Link>
           <Link href="/documents" passHref>
-            <li className="relative w-10 pt-1 h-10 border  flex flex-col items-center justify-center shadow-md bg-gray-100 text-slate-600 transition-transform transform hover:scale-110 hover:shadow-lg cursor-pointer rounded-md ">
+            <li className="relative w-14 pt-1 h-14 border  flex flex-col items-center justify-center shadow-md bg-gray-100 text-slate-600 transition-transform transform hover:scale-110 hover:shadow-lg cursor-pointer rounded-md ">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
@@ -243,11 +243,11 @@ const VerticalMenu = ({ onComponentSelect }) => {
                 />
               </svg>
 
-              <h2 className="text-xs">Profile</h2>
+              <h2 className="text-[11px]">Profile</h2>
             </li>
           </Link>
           <Link href="/documents" passHref>
-            <li className="left-[8px] fixed bottom-5 md:left-4 w-10 pt-1 h-10   flex flex-col items-center justify-center text-slate-600 transition-transform transform hover:scale-110 hover:shadow-lg cursor-pointer rounded-md ">
+            <li className="left-[8px] fixed bottom-14 md:left-4 w-14 pt-1 h-14   flex flex-col items-center justify-center text-slate-600 transition-transform transform hover:scale-110 hover:shadow-lg cursor-pointer rounded-md ">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"

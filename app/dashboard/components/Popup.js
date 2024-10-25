@@ -21,6 +21,8 @@ const Popups = ({ isModalOpen, closeModal, type, onSubmit }) => {
     { id: 8, name: "Charlie2", role: "member" },
     { id: 9, name: "David2", role: "consultant" },
     { id: 10, name: "Eva2", role: "member" },
+    { id: 11, name: "Eva2", role: "supplier" },
+    { id: 12, name: "Evans  ", role: "contractor" },
   ];
 
   const predefinedDesigns = [
@@ -357,9 +359,10 @@ const Popups = ({ isModalOpen, closeModal, type, onSubmit }) => {
                   </div>
 
                   {/* Right Side - Selected Members Table */}
-                  <div className="col-span-1 mt-2">
+                  <div className="h-[95%] mt-7 p-2 bg-gray-100 border  border-gray-300 rounded-lg ">
+                  <div className="col-span-1 mt-2 ">
                     <h4 className="text-sm font-medium text-gray-800">
-                      Selected Members
+                      Selected Members :
                     </h4>
                     <table className="min-w-full mt-2 border border-gray-200">
                       <thead>
@@ -409,6 +412,7 @@ const Popups = ({ isModalOpen, closeModal, type, onSubmit }) => {
                         })}
                       </tbody>
                     </table>
+                  </div>
                   </div>
                 </div>
 

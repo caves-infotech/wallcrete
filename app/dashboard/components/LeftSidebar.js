@@ -44,7 +44,7 @@ const LeftSidebar = ({ selectedComponent }) => {
       <div>
         {/* hamburgor menu */}
         <button
-          className="md:block fixed top-4 left-1 md:left-5 md:top-[4.4rem] z-50"
+          className="md:block fixed top-4 left-1 md:left-7 md:top-[5rem] z-50"
           onClick={handleSlide}
         >
           <svg
@@ -53,7 +53,7 @@ const LeftSidebar = ({ selectedComponent }) => {
             viewBox="0 0 24 24"
             strokeWidth="1.5"
             stroke="currentColor"
-            className="size-7"
+            className="size-9"
           >
             <path
               strokeLinecap="round"
@@ -65,7 +65,7 @@ const LeftSidebar = ({ selectedComponent }) => {
       </div>
       <aside
         className={`hidden w-[85vw] h-[88vh] mt-16 md:mt-6 rounded-md ml-14 lg:ml-0 md:h-[85vh] lg:block lg:fixed lg:w-1/4 lg:h-[88vh] border-2 border-gray-300 md:rounded-xl m-2 top-12 shadow-lg transition-all duration-500 ${
-          sidebar ? "-left-96 -z-10" : "left-16 z-10"
+          sidebar ? "-left-96 -z-10" : "left-20 z-10"
         }`}
       >
         <div className="h-full">{renderSelectedComponent()}</div>

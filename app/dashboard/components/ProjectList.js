@@ -118,7 +118,7 @@ const ProjectList = () => {
   };
 
   return (
-    <div className="h-full p-4 rounded-lg shadow-md ">
+    <div className="h-full py-4 ">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         fill="none"
@@ -293,7 +293,7 @@ const ProjectList = () => {
         </div>
       </div>
       {/* Add project */}
-      <div className="w-[80%] m:w-[85%] lg:w-[85%] ml-4 h-8 m:h-10 -mt-8 m:-mt-7 ">
+      <div className="w-[80%] m:w-[85%] lg:w-[85%] ml-4 h-8 m:h-10 -mt-8 lg:mt-[50%] ">
         <button
           className="w-full h-8 border-2 border-gray-300 rounded-lg "
           onClick={handlePopupButtonClick}
