@@ -1,8 +1,14 @@
 "use client";
 import React, { useState } from "react";
 import { useMyContext } from "./Context";
-import Floors from "./Floors";
-import BOQs from "./BOQs";
+import Drawings from "./Drawings";
+import Orders from "./Orders";
+import Visuals from "./Visuals";
+import Actuals from "./Actuals";
+import Docs from "./Docs";
+import Tasks from "./Tasks";
+import Discussion from "./Discussion";
+import modelPath from "../../../public/ImageToStl.com_table+2.gltf";
 
 const ProjectDetail = () => {
   const { data } = useMyContext();
@@ -10,53 +16,43 @@ const ProjectDetail = () => {
   const buttons = [
     {
       label: "Drawing",
-      content: (
-        <div className="w-[77vw] md:w-full lg:mt-2">
-          <Floors isReversed={false} />
-        </div>
-      ),
+      content: <Drawings isReversed={false} />,
     },
     {
       label: "Visuals",
-      content: (
-        <div className="w-[77vw] md:w-[50vw] h-[542px]  p-2  mt-4"></div>
-      ),
+      content: <Visuals model={modelPath} />,
     },
 
     {
       label: "Actuals",
-      content: <div className="w-[77vw] md:w-full lg:mt-2 lg:ml-auto "></div>,
+      content: <Actuals />,
     },
     {
       label: "Order",
-      content: (
-        <div className="w-[77vw] h-[78vh] md:w-full lg:mt-2 lg:ml-auto ">
-          <BOQs />
-        </div>
-      ),
+      content: <Orders />,
     },
     {
       label: "Doc",
-      content: <div className=" w-full h-[78vh]"></div>,
+      content: <Docs />,
     },
     {
       label: "Tasks",
-      content: <div className=" w-full h-[78vh]"></div>,
+      content: <Tasks />,
     },
     {
       label: "Discussion",
-      content: <div className=" w-full h-[78vh]"></div>,
+      content: <Discussion />,
     },
   ];
 
   return (
-    <div className="w-[80vw] lg:w-[50vw] ml-14 lg:-ml-2 h-16 md:h-12 lg:h-24 p-2  rounded-xl xxl:h-24 ">
-      <div>
-        <div className="w-full  border-b-4 border-b-gray-300 h-12">
+    <>
+      <div className="w-full border border-gray-300 shadow-lg rounded-md p-2 h-[90vh]">
+        <div className="w-full h-8">
           {buttons.map((btn) => (
             <button
               key={btn.label}
-              className={`w-20 md:w-24 h-full  text-slate-800 text-sm  transition-all
+              className={`w-20 md:w-24 h-full  text-slate-800 text-lg  transition-all
               ${
                 activeButton === btn.label
                   ? "border-b-4 border-b-slate-500"
@@ -68,11 +64,9 @@ const ProjectDetail = () => {
             </button>
           ))}
         </div>
-        <div className="w-full h-[90%] mt-1  flex items-center justify-center">
-          {buttons.find((btn) => btn.label === activeButton)?.content}
-        </div>
+        <div>{buttons.find((btn) => btn.label === activeButton)?.content}</div>
       </div>
-    </div>
+    </>
   );
 };
 

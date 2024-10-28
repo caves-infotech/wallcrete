@@ -12,6 +12,7 @@ export const predefinedProjects = [
     predefinedDesigns: [],
     floors: ["ground", "first", "second"],
     location: "mumbai",
+    image: "",
   },
   {
     projectId: 502,
