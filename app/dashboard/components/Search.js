@@ -1,7 +1,7 @@
 import React from "react";
 
-const Members = () => {
+const Search = () => {
   return <div></div>;
 };
 
-export default Members;
+export default Search;

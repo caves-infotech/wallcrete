@@ -6,18 +6,10 @@ const Drawings = ({ isReversed }) => {
   const [btnDropdown, setBtnDropdown] = useState(false);
   const [selectedFloor, setSelectedFloor] = useState(""); // Track selected floor
   const [selectedDesign, setSelectedDesign] = useState(null); // Track design for selected floor
-  const [basementFloors, setBasementFloors] = useState([
+  const [floors, setFloors] = useState([
     "B-1",
     "B-2",
     "B-3",
-    "B-4",
-    "B-5",
-    "B-6",
-    "B-7",
-    "B-8",
-    "B-9",
-  ]);
-  const [upperFloors, setUpperFloors] = useState([
     "1-F",
     "2-F",
     "3-F",
@@ -62,14 +54,9 @@ const Drawings = ({ isReversed }) => {
     setSelectedFloor(null); // Reset selected floor when a new design is selected
   };
 
-  const addBasementFloor = () => {
-    const newFloor = `B-${basementFloors.length + 1}`;
-    setBasementFloors([...basementFloors, newFloor]);
-  };
-
-  const addUpperFloor = () => {
-    const newFloor = `${upperFloors.length + 1}-F`;
-    setUpperFloors([...upperFloors, newFloor]);
+  const addFloor = () => {
+    const newFloor = `${floors.length + 1}-F`;
+    setFloors([...floors, newFloor]);
   };
 
   return (
@@ -98,7 +85,7 @@ const Drawings = ({ isReversed }) => {
 
       <div className="flex items-center justify-between h-[80%] ">
         <div className="w-[15%] h-[96%] flex flex-col items-start justify-end gap-[6px] p-1 overflow-y-auto">
-          {upperFloors.map((floor) => {
+          {floors.map((floor) => {
             const isSelected = selectedFloor === floor; // Check if this floor is selected
             return (
               <button
@@ -126,23 +113,7 @@ const Drawings = ({ isReversed }) => {
             </div>
           )}
         </div>
-        <div className="w-[15%] h-[96%] flex flex-col items-start justify-end gap-[6px] p-1 overflow-y-auto">
-          {basementFloors.map((floor) => {
-            const isSelected = selectedFloor === floor; // Check if this floor is selected
-            return (
-              <button
-                key={floor} // Use id for a unique key
-                className={`w-28 flex-shrink-0 border-2 border-gray-300 rounded-lg transition duration-300 transform hover:scale-105 py-1 mt-1 ${
-                  isSelected ? "bg-blue-400" : ""
-                }`}
-                onClick={() => handleClick(floor)}
-                disabled={!selectedDesign} // Disable button if no design is selected
-              >
-                {floor}
-              </button>
-            );
-          })}
-        </div>
+        <div className="w-[15%] h-[96%] flex flex-col items-start justify-end gap-[6px] p-1 overflow-y-auto"></div>
       </div>
 
       <div className="w-full h-9 border-2 border-gray-300 rounded-lg text-2xl flex items-center justify-center cursor-pointer mt-1 ml-1"></div>

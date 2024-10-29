@@ -8,6 +8,7 @@ import Docs from "./Docs";
 import { useState } from "react";
 import Inbox from "./Inbox";
 import Tasks from "./Tasks";
+import Search from "./Search";
 
 const LeftSidebar = ({ selectedComponent }) => {
   const [sidebar, setSidebar] = useState(null);
@@ -16,6 +17,8 @@ const LeftSidebar = ({ selectedComponent }) => {
     switch (selectedComponent) {
       case "ProjectList":
         return <ProjectList />;
+      case "Search":
+        return <Search />;
       case "Members":
         return <Members />;
       case "CRM":

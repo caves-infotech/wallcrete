@@ -272,39 +272,40 @@ const ProjectList = () => {
             </select>
           </div>
         </div>
-      </div>
 
-      {/* Render filtered project */}
-      <div className=" w-full h-[380px] lg:h-[475px] overflow-y-auto no-scrollbar mb-2">
-        <div
-          className={`mx-3  w-11/12 flex gap-x-4 ${
-            toggle ? "flex-wrap" : "flex flex-col "
-          }`}
-          ref={containerRef}
-        >
-          {filteredProjects.map((project) => (
-            <div
-              key={project.projectId}
-              className={`h-24 mb-2 ${
-                toggle ? "w-2/5 hover:scale-105" : "w-full"
-              } text-left shadow-lg  hover:cursor-pointer transition-all duration-200 ease-in-out`}
-              ref={(el) => (cardRef.current[project.projectId] = el)} // Use projectId for storage
-              onClick={(e) => handleTogglee(project.projectId, e)} // Pass projectId to handleTogglee
-            >
-              <ProjectCard project={project} test={toggle} />
-            </div>
-          ))}
+        {/* Render filtered project */}
+        <div className=" w-full h-[380px] lg:h-[475px] overflow-y-auto no-scrollbar mb-2">
+          <div
+            className={`mx-3  w-11/12 flex gap-x-4 ${
+              toggle ? "flex-wrap" : "flex flex-col "
+            }`}
+            ref={containerRef}
+          >
+            {filteredProjects.map((project) => (
+              <div
+                key={project.projectId}
+                className={`h-24 mb-2 ${
+                  toggle ? "w-2/5 hover:scale-105" : "w-full"
+                } text-left shadow-lg  hover:cursor-pointer transition-all duration-200 ease-in-out`}
+                ref={(el) => (cardRef.current[project.projectId] = el)} // Use projectId for storage
+                onClick={(e) => handleTogglee(project.projectId, e)} // Pass projectId to handleTogglee
+              >
+                <ProjectCard project={project} test={toggle} />
+              </div>
+            ))}
+          </div>
+        </div>
+        {/* Add project */}
+        <div className=" bottom-0 w-[80%] m:w-[85%] lg:w-[85%] ml-4 h-8 ">
+          <button
+            className="w-full  border-2 border-gray-300 rounded-lg "
+            onClick={handlePopupButtonClick}
+          >
+            + Add project
+          </button>
         </div>
       </div>
-      {/* Add project */}
-      <div className=" bottom-0 w-[80%] m:w-[85%] lg:w-[85%] ml-4 h-8 ">
-        <button
-          className="w-full  border-2 border-gray-300 rounded-lg "
-          onClick={handlePopupButtonClick}
-        >
-          + Add project
-        </button>
-      </div>
+
       <Popups
         isModalOpen={isPopupVisible}
         closeModal={closePopupModal}

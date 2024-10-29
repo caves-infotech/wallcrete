@@ -27,9 +27,7 @@ const Inbox = ({ rightsidebar }) => {
 
   return (
     <aside
-      className={`w-full p-2 bg-gray-100 ${
-        rightsidebar ? "p-0 pt-28" : "py-16"
-      } `}
+      className={`w-full p-2 bg-gray-100 ${rightsidebar ? "p-0 " : "py-16"} `}
     >
       {!rightsidebar && (
         <div className="w-full h-10 mb-2">

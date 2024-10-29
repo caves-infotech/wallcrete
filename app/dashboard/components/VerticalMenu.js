@@ -13,10 +13,19 @@ import {
 } from "./icons.js";
 import Link from "next/link";
 import ProjectList from "./ProjectList.js";
+import Members from "./Members";
+import CRM from "./CRM";
+import Orders from "./Orders";
+import Pay from "./Pay";
+import Docs from "./Docs";
+import Inbox from "./Inbox";
+import Tasks from "./Tasks";
+import Search from "./Search";
 
 const VerticalMenu = ({ onComponentSelect }) => {
   const [selectedComponent, setSelectedComponent] = useState(null);
   const [hoveredComponent, setHoveredComponent] = useState(null);
+  const [isClickActive, setIsClickActive] = useState(false);
 
   const menuItems = [
     { name: "Home", icon: <HomeIcon />, component: "Home", isLink: false },
@@ -35,7 +44,7 @@ const VerticalMenu = ({ onComponentSelect }) => {
     {
       name: "Members",
       icon: <MemberIcon />,
-      component: "ProjectList",
+      component: "Members",
       isLink: true,
       href: "/dashboard",
     },
@@ -49,35 +58,61 @@ const VerticalMenu = ({ onComponentSelect }) => {
     {
       name: "CRM",
       icon: <CRMIcon />,
-      component: "ProjectList",
+      component: "crm",
       isLink: true,
       href: "/dashboard",
     },
     {
       name: "Tasks",
       icon: <TaskIcon />,
-      component: "ProjectList",
+      component: "tasks",
       isLink: true,
-      href: "/dashboard",
+      href: "/tasks",
     },
     {
       name: "Orders",
       icon: <OrderIcon />,
-      component: "ProjectList",
+      component: "orders",
       isLink: true,
       href: "/dashboard",
     },
     {
       name: "Pay",
       icon: <PayIcon />,
-      component: "ProjectList",
+      component: "pay                  ",
       isLink: true,
       href: "/dashboard",
     },
   ];
 
+  const renderHoveredComponent = () => {
+    switch (hoveredComponent) {
+      case "ProjectList":
+        return <ProjectList />;
+      case "Search":
+        return <Search />;
+      case "Members":
+        return <Members />;
+      case "CRM":
+        return <CRM />;
+      case "Task":
+        return <Tasks />;
+      case "Chat":
+        return <Inbox />;
+      case "Orders":
+        return <Orders />;
+      case "Pay":
+        return <Pay />;
+      case "Docs":
+        return <Docs />;
+      default:
+        return null; // or a default component
+    }
+  };
+
   const handleComponentSelect = (component) => {
     setSelectedComponent(component);
+    setIsClickActive(true);
     onComponentSelect(component);
   };
 
@@ -91,8 +126,10 @@ const VerticalMenu = ({ onComponentSelect }) => {
               <li
                 key={index}
                 onClick={() => handleComponentSelect(item.component)}
-                onMouseEnter={() => setHoveredComponent(item.component)}
-                onMouseLeave={() => setHoveredComponent(null)}
+                onMouseEnter={() =>
+                  !isClickActive && setHoveredComponent(item.component)
+                }
+                onMouseLeave={() => !isClickActive && setHoveredComponent(null)}
                 className={`relative w-14 pt-1 h-14 border flex flex-col items-center justify-center shadow-md bg-gray-100 text-slate-600 transition-transform transform hover:scale-110 hover:shadow-lg cursor-pointer rounded-md ${
                   item.showOnLarge ? "hidden lg:flex" : ""
                 }`}
@@ -115,8 +152,14 @@ const VerticalMenu = ({ onComponentSelect }) => {
 
       {/* Render the hovered component here */}
       {hoveredComponent && (
-        <div className="absolute w-80 -ml-2 h-[80vh] top-8 left-20 p-4 bg-white border rounded-lg shadow-lg">
-          {hoveredComponent && <ProjectList />}
+        <div
+          className={`${
+            !isClickActive
+              ? "absolute w-80 -ml-2 h-[80vh] top-8 left-20 p-4 bg-white border rounded-lg shadow-lg overflow-y-hidden "
+              : "hidden"
+          }`}
+        >
+          {renderHoveredComponent()}
         </div>
       )}
     </div>
