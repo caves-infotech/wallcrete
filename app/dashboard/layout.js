@@ -7,16 +7,13 @@ import { MyProvider } from "./components/Context";
 import { useState } from "react";
 
 export default function DashboardLayout({ children }) {
-<<<<<<< HEAD
-  const [selectedComponent, setSelectedComponent] = useState(""); 
-=======
+  // const [selectedComponent, setSelectedComponent] = useState(""); 
   const [selectedComponent, setSelectedComponent] = useState(""); // Default component
   const [leftsidebar, setLeftSidebar] = useState(false);
   const [rightsidebar, setRightSidebar] = useState(false);
->>>>>>> 8c32faf2791a6e8ca7547bc58cfb44caec6b89f1
 
   const handleComponentSelect = (component) => {
-    setSelectedComponent(component); 
+    setSelectedComponent(component);
   };
 
   const handleLeftSlide = () => {
@@ -48,9 +45,8 @@ export default function DashboardLayout({ children }) {
         </svg>
       </button>
       <button
-        className={`md:block fixed ${
-          rightsidebar ? "right-9" : "right-4"
-        } top-[66px] z-50`}
+        className={`md:block fixed ${rightsidebar ? "right-9" : "right-4"
+          } top-[66px] z-50`}
         onClick={handleRightSlide}
       >
         <svg
@@ -71,47 +67,41 @@ export default function DashboardLayout({ children }) {
 
       <MyProvider>
         <Navbar />
-<<<<<<< HEAD
-        <div className="dashboard-content flex flex-row flex-grow">
+        {/* <div className="dashboard-content flex flex-row flex-grow"> */}
           <VerticalMenu onComponentSelect={handleComponentSelect} />
           <LeftSidebar selectedComponent={selectedComponent} />
           <main className="main-content flex-grow ">{children}</main>
           <RightSidebar />
-=======
-        <div className="w-[94vw] h-[90vh] ml-20 dashboard-content flex flex-row flex-grow gap-2">
-          {/* Left Sidebar */}
-          <div
-            className={`${
-              leftsidebar ? "hidden" : "block border border-r-2"
-            } w-[22%] mt-14  transition-all duration-500`}
-          >
-            <LeftSidebar selectedComponent={selectedComponent} />
-          </div>
+          <div className="w-[94vw] h-[90vh] ml-20 dashboard-content flex flex-row flex-grow gap-2">
+            {/* Left Sidebar */}
+            <div
+              className={`${leftsidebar ? "hidden" : "block border border-r-2"
+                } w-[22%] mt-14  transition-all duration-500`}
+            >
+              <LeftSidebar selectedComponent={selectedComponent} />
+            </div>
 
-          {/* Main Content */}
-          <main
-            className={`mt-2 flex-grow h-[96vh]  py-14 p-4 transition-all duration-500 ${
-              leftsidebar && rightsidebar
-                ? "w-[58%]"
-                : leftsidebar || leftsidebar
-                ? "w-[55%]"
-                : "w-[55%"
-            }`}
-          >
-            {children}
-          </main>
+            {/* Main Content */}
+            <main
+              className={`mt-2 flex-grow h-[96vh]  py-14 p-4 transition-all duration-500 ${leftsidebar && rightsidebar
+                  ? "w-[58%]"
+                  : leftsidebar || leftsidebar
+                    ? "w-[55%]"
+                    : "w-[55%"
+                }`}
+            >
+              {children}
+            </main>
 
-          {/* Right Sidebar */}
-          <div
-            className={`h-screen border border-l-2 transition-all duration-500 ${
-              rightsidebar ? "w-[6%]" : "w-[20%]"
-            }`}
-          >
-            <RightSidebar rightsidebar={rightsidebar} />
+            {/* Right Sidebar */}
+            <div
+              className={`h-screen border border-l-2 transition-all duration-500 ${rightsidebar ? "w-[6%]" : "w-[20%]"
+                }`}
+            >
+              <RightSidebar rightsidebar={rightsidebar} />
+            </div>
           </div>
->>>>>>> 8c32faf2791a6e8ca7547bc58cfb44caec6b89f1
-        </div>
-        <VerticalMenu onComponentSelect={handleComponentSelect} />
+          <VerticalMenu onComponentSelect={handleComponentSelect} />
       </MyProvider>
     </div>
   );
