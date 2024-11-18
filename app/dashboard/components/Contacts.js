@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Image from "next/image";
 import logo from "../../../public/logo.webp";
 
-const Contacts = ({ data, selectedContact, setSelectedContact }) => {
+const Contacts = ({ data, selectedContact, setSelectedContact, minimized }) => {
   const [expanded, setExpanded] = useState(true);
   const handleContactClick = () => {
     setSelectedContact(
@@ -14,56 +14,73 @@ const Contacts = ({ data, selectedContact, setSelectedContact }) => {
     <>
       {/* Main Contact Item */}
       <div
-        className="flex items-center justify-between gap-4 p-2 border-b-2 border-b-gray-200 hover:bg-gray-200 cursor-pointer"
+        className="flex items-center justify-between gap-4 p-2 hover:bg-gray-200 cursor-pointer"
         onClick={handleContactClick} // Handle click
       >
         <div className="w-full flex items-center gap-2">
-          <figure className="w-[25%] h-14 border rounded-full flex items-center justify-center">
-            <Image
-              src={logo}
-              width={100}
-              height={100}
-              alt="User logo"
-              className="w-[90%] h-[90%] rounded-full object-cover"
-            />
-          </figure>
-          <div className="w-[60%] flex flex-col">
-            <div>
-              <p className="text-sm font-medium">{data.name || ""}</p>
-            </div>
-            <div>
-              <p className="w-4/5 text-xs text-gray-600 truncate">
-                {data.lastMessage?.text || "No message"}
-              </p>
-            </div>
-            <h3 className="text-xs text-gray-400 truncate">
-              {data.lastMessage?.timestamp
-                ? new Date(data.lastMessage.timestamp)
-                    .toLocaleTimeString([], {
-                      hour: "2-digit",
-                      minute: "2-digit",
-                      hour12: true,
-                    })
-                    .toLocaleLowerCase()
-                : ""}
-            </h3>
-          </div>
-          <button className="w-[9%] h-[5%] flex items-center justify-center relative ">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              strokeWidth="1.5"
-              stroke="currentColor"
-              className="size-8"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M12 6.75a.75.75 0 1 1 0-1.5.75.75 0 0 1 0 1.5ZM12 12.75a.75.75 0 1 1 0-1.5.75.75 0 0 1 0 1.5ZM12 18.75a.75.75 0 1 1 0-1.5.75.75 0 0 1 0 1.5Z"
+          {minimized && (
+            <figure className="w-full h-14 border rounded-full flex items-center justify-center">
+              <Image
+                src={logo}
+                width={100}
+                height={100}
+                alt="User logo"
+                className="w-[90%] h-[90%] rounded-full object-cover"
               />
-            </svg>
-          </button>
+            </figure>
+          )}
+          {!minimized && (
+            <figure className="w-[25%] h-14 border rounded-full flex items-center justify-center">
+              <Image
+                src={logo}
+                width={100}
+                height={100}
+                alt="User logo"
+                className="w-[90%] h-[90%] rounded-full object-cover"
+              />
+            </figure>
+          )}
+          {!minimized && (
+            <>
+              <div className="w-[60%] flex flex-col ">
+                <div>
+                  <p className="text-sm font-medium">{data.name || ""}</p>
+                </div>
+                <div>
+                  <p className="w-4/5 text-xs text-gray-600 truncate">
+                    {data.lastMessage?.text || "No message"}
+                  </p>
+                </div>
+                <h3 className="text-xs text-gray-400 truncate">
+                  {data.lastMessage?.timestamp
+                    ? new Date(data.lastMessage.timestamp)
+                        .toLocaleTimeString([], {
+                          hour: "2-digit",
+                          minute: "2-digit",
+                          hour12: true,
+                        })
+                        .toLocaleLowerCase()
+                    : ""}
+                </h3>
+              </div>
+              <button className="w-[9%] h-[5%] flex items-center justify-center relative ">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  strokeWidth="1.5"
+                  stroke="currentColor"
+                  className="size-8"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M12 6.75a.75.75 0 1 1 0-1.5.75.75 0 0 1 0 1.5ZM12 12.75a.75.75 0 1 1 0-1.5.75.75 0 0 1 0 1.5ZM12 18.75a.75.75 0 1 1 0-1.5.75.75 0 0 1 0 1.5Z"
+                  />
+                </svg>
+              </button>
+            </>
+          )}
         </div>
       </div>
 

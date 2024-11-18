@@ -1,7 +1,7 @@
 import React from "react";
 
-const BOQs = () => {
+const Search = () => {
   return <div></div>;
 };
 
-export default BOQs;
+export default Search;

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { useState } from "react";
 import Link from "next/link"; // Assuming you're using Next.js
 
@@ -75,6 +76,12 @@ const Members = ({ all_tasks }) => {
       </div>
     </div>
   );
+=======
+import React from "react";
+
+const Members = () => {
+  return <div></div>;
+>>>>>>> 8c32faf2791a6e8ca7547bc58cfb44caec6b89f1
 };
 
 export default Members;

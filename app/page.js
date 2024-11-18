@@ -1,6 +1,13 @@
+import Link from "next/link";
+
 export default function Home() {
   return (
     <div className="bg-[#FEFAF6] min-h-screen flex flex-col items-center justify-center">
+      <div>
+        <Link href="/dashboard">
+          <button className="w-10 h-10 rounded-full bg-gradient-to-r from-red-500 to-yellow-400"></button>
+        </Link>
+      </div>
       <header className="w-full bg-gradient-to-r from-red-500 to-yellow-500 p-8 shadow-xl rounded-b-lg">
         <h1 className="text-5xl font-extrabold text-center text-white tracking-wider drop-shadow-lg">
           Welcome to wallcreat !!!

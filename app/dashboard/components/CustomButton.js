@@ -6,9 +6,9 @@ const CustomButton = ({ name, icon, onClick }) => {
     <div className="w-4/5 md:w-11/12 mx-auto mt-1 text-[13px] font-medium">
       <button
         onClick={onClick}
-        className={`border w-11/12 h-[37.5px] rounded-xl flex items-center justify-between p-2 transform transition-transform hover:scale-105 hover:shadow-xl shadow-lg bg-gradient-to-r from-gray-500 to-gray-600`}
+        className={`border w-4/6 h-9 rounded-xl flex items-center justify-between p-2 transform transition-transform hover:scale-105 hover:shadow-xl shadow-lg bg-gradient-to-r from-gray-500 to-gray-600`}
       >
-        <span className="w-4/5 bg-white text-black flex items-center h-7 rounded-xl px-4 overflow-hidden shadow-inner">
+        <span className="w-4/5 bg-white text-black flex items-center h-5 rounded-lg px-4 overflow-hidden shadow-inner">
           <span className="w-full truncate">{name}</span>
         </span>
         {icon ? (
@@ -20,12 +20,12 @@ const CustomButton = ({ name, icon, onClick }) => {
             viewBox="0 0 24 24"
             strokeWidth="1.5"
             stroke="white"
-            className="ml-2 h-6 w-6"
+            className="ml-2 h-8 w-8"
           >
             <path
               strokeLinecap="round"
               strokeLinejoin="round"
-              d="M12 6.042A8.967 8.967 0 0 0 6 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 0 1 6 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 0 1 6-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0 0 18 18a8.967 8.967 0 0 0-6 2.292m0-14.25v14.25"
+              d="M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
             />
           </svg>
         )}
@@ -35,3 +35,5 @@ const CustomButton = ({ name, icon, onClick }) => {
 };
 
 export default CustomButton;
+
+

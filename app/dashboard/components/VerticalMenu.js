@@ -1,103 +1,145 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import {
+  HomeIcon,
+  SearchIcon,
+  ProjectIcon,
+  MemberIcon,
+  ChatIcon,
+  CRMIcon,
+  TaskIcon,
+  OrderIcon,
+  PayIcon,
+} from "./icons.js";
 import Link from "next/link";
+import ProjectList from "./ProjectList.js";
+import Members from "./Members";
+import CRM from "./CRM";
+import Orders from "./Orders";
+import Pay from "./Pay";
+import Docs from "./Docs";
+import Inbox from "./Inbox";
+import Tasks from "./Tasks";
+import Search from "./Search";
 
 const VerticalMenu = ({ onComponentSelect }) => {
   const [selectedComponent, setSelectedComponent] = useState(null);
+  const [hoveredComponent, setHoveredComponent] = useState(null);
+  const [isClickActive, setIsClickActive] = useState(false);
+
+  const menuItems = [
+    { name: "Home", icon: <HomeIcon />, component: "Home", isLink: false },
+    {
+      name: "Search",
+      icon: <SearchIcon />,
+      component: "Search",
+      isLink: false,
+    },
+    {
+      name: "Projects",
+      icon: <ProjectIcon />,
+      component: "ProjectList",
+      isLink: false,
+    },
+    {
+      name: "Members",
+      icon: <MemberIcon />,
+      component: "Members",
+      isLink: true,
+      href: "/dashboard",
+    },
+    {
+      name: "Chats",
+      icon: <ChatIcon />,
+      component: "Chat",
+      isLink: false,
+      showOnLarge: true,
+    },
+    {
+      name: "CRM",
+      icon: <CRMIcon />,
+      component: "crm",
+      isLink: true,
+      href: "/dashboard",
+    },
+    {
+      name: "Tasks",
+      icon: <TaskIcon />,
+      component: "tasks",
+      isLink: true,
+      href: "/tasks",
+    },
+    {
+      name: "Orders",
+      icon: <OrderIcon />,
+      component: "orders",
+      isLink: true,
+      href: "/dashboard",
+    },
+    {
+      name: "Pay",
+      icon: <PayIcon />,
+      component: "pay                  ",
+      isLink: true,
+      href: "/dashboard",
+    },
+  ];
+
+  const renderHoveredComponent = () => {
+    switch (hoveredComponent) {
+      case "ProjectList":
+        return <ProjectList />;
+      case "Search":
+        return <Search />;
+      case "Members":
+        return <Members />;
+      case "CRM":
+        return <CRM />;
+      case "Task":
+        return <Tasks />;
+      case "Chat":
+        return <Inbox />;
+      case "Orders":
+        return <Orders />;
+      case "Pay":
+        return <Pay />;
+      case "Docs":
+        return <Docs />;
+      default:
+        return null; // or a default component
+    }
+  };
 
   const handleComponentSelect = (component) => {
     setSelectedComponent(component);
+    setIsClickActive(true);
     onComponentSelect(component);
   };
+
   return (
-    <div className="fixed top-20 lg:top-[4.5rem] h-[88vh] rounded-lg bg-[#F5F7F8]">
-      <div className="hidden lg:block h-11 w-10 ml-[14%]"></div>
-      <div className="h-[75vh] md:h-[70vh] mt-0 lg:h-[68vh] overflow-y-auto no-scrollbar px-2 lg:mt-1 ">
+    <div className="fixed top-20 lg:top-[4.5rem] lg:left-2 h-[88vh] rounded-lg">
+      <div className="hidden lg:block h-14 w-14 ml-[14%]"></div>
+      <div className="h-[75vh] md:h-[70vh] mt-0 lg:h-[72vh] overflow-y-auto no-scrollbar px-2 lg:mt-1">
         <ul className="flex flex-col items-center justify-center gap-6">
-          <li
-            onClick={() => handleComponentSelect("ProjectList")}
-            className="relative w-10 pt-1 h-10 border  flex flex-col items-center justify-center shadow-md bg-gray-100 text-slate-600 transition-transform transform hover:scale-110 hover:shadow-lg cursor-pointer rounded-md "
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              strokeWidth="1.5"
-              stroke="currentColor"
-              className="size-5"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M3.75 21h16.5M4.5 3h15M5.25 3v18m13.5-18v18M9 6.75h1.5m-1.5 3h1.5m-1.5 3h1.5m3-6H15m-1.5 3H15m-1.5 3H15M9 21v-3.375c0-.621.504-1.125 1.125-1.125h3.75c.621 0 1.125.504 1.125 1.125V21"
-              />
-            </svg>
-
-            <h2 className="text-[10px]">Home</h2>
-          </li>
-          <li
-            onClick={() => handleComponentSelect("ProjectList")}
-            className="relative w-10 pt-1 h-10 border  flex flex-col items-center justify-center shadow-md bg-gray-100 text-slate-600 transition-transform transform hover:scale-110 hover:shadow-lg cursor-pointer rounded-md "
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              strokeWidth="1.5"
-              stroke="currentColor"
-              className="size-5"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z"
-              />
-            </svg>
-
-            <h2 className="text-xs">Search</h2>
-          </li>
-          <li
-            onClick={() => handleComponentSelect("ProjectList")}
-            className="relative w-10 pt-1 h-10 border  flex flex-col items-center justify-center shadow-md bg-gray-100 text-slate-600 transition-transform transform hover:scale-110 hover:shadow-lg cursor-pointer rounded-md "
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              strokeWidth="1.5"
-              stroke="currentColor"
-              className="size-5"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M3.75 21h16.5M4.5 3h15M5.25 3v18m13.5-18v18M9 6.75h1.5m-1.5 3h1.5m-1.5 3h1.5m3-6H15m-1.5 3H15m-1.5 3H15M9 21v-3.375c0-.621.504-1.125 1.125-1.125h3.75c.621 0 1.125.504 1.125 1.125V21"
-              />
-            </svg>
-
-            <h2 className="text-xs">Projects</h2>
-          </li>
-
-          <Link href="/dashboard" passHref>
-            <li
-              onClick={() => handleComponentSelect("ProjectList")}
-              className="relative w-10 pt-1 h-10 border  flex flex-col items-center justify-center shadow-md bg-gray-100 text-slate-600 transition-transform transform hover:scale-110 hover:shadow-lg cursor-pointer rounded-md "
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                strokeWidth="1.5"
-                stroke="currentColor"
-                className="size-5"
+          {menuItems.map((item, index) => {
+            const MenuItemContent = (
+              <li
+                key={index}
+                onClick={() => handleComponentSelect(item.component)}
+                onMouseEnter={() =>
+                  !isClickActive && setHoveredComponent(item.component)
+                }
+                onMouseLeave={() => !isClickActive && setHoveredComponent(null)}
+                className={`relative w-14 pt-1 h-14 border flex flex-col items-center justify-center shadow-md bg-gray-100 text-slate-600 transition-transform transform hover:scale-110 hover:shadow-lg cursor-pointer rounded-md ${
+                  item.showOnLarge ? "hidden lg:flex" : ""
+                }`}
               >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M18 18.72a9.094 9.094 0 0 0 3.741-.479 3 3 0 0 0-4.682-2.72m.94 3.198.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0 1 12 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 0 1 6 18.719m12 0a5.971 5.971 0 0 0-.941-3.197m0 0A5.995 5.995 0 0 0 12 12.75a5.995 5.995 0 0 0-5.058 2.772m0 0a3 3 0 0 0-4.681 2.72 8.986 8.986 0 0 0 3.74.477m.94-3.197a5.971 5.971 0 0 0-.94 3.197M15 6.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Zm6 3a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Zm-13.5 0a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Z"
-                />
-              </svg>
+                {item.icon}
+                <h2 className="text-[10px] lg:text-[11px]">{item.name}</h2>
+              </li>
+            );
 
+<<<<<<< HEAD
               <h2 className="text-xs">Members</h2>
             </li>
           </Link>
@@ -269,8 +311,31 @@ const VerticalMenu = ({ onComponentSelect }) => {
               </svg>
             </li>
           </Link>
+=======
+            return item.isLink ? (
+              <Link key={index} href={item.href} passHref>
+                {MenuItemContent}
+              </Link>
+            ) : (
+              MenuItemContent
+            );
+          })}
+>>>>>>> 8c32faf2791a6e8ca7547bc58cfb44caec6b89f1
         </ul>
       </div>
+
+      {/* Render the hovered component here */}
+      {hoveredComponent && (
+        <div
+          className={`${
+            !isClickActive
+              ? "absolute w-80 -ml-2 h-[80vh] top-8 left-20 p-4 bg-white border rounded-lg shadow-lg overflow-y-hidden "
+              : "hidden"
+          }`}
+        >
+          {renderHoveredComponent()}
+        </div>
+      )}
     </div>
   );
 };

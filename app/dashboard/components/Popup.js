@@ -21,6 +21,8 @@ const Popups = ({ isModalOpen, closeModal, type, onSubmit }) => {
     { id: 8, name: "Charlie2", role: "member" },
     { id: 9, name: "David2", role: "consultant" },
     { id: 10, name: "Eva2", role: "member" },
+    { id: 11, name: "Eva2", role: "supplier" },
+    { id: 12, name: "Evans  ", role: "contractor" },
   ];
 
   const predefinedDesigns = [
@@ -227,85 +229,141 @@ const Popups = ({ isModalOpen, closeModal, type, onSubmit }) => {
                   />
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                  <div>
-                    <label
-                      htmlFor="assignMembers"
-                      className="block mb-2 text-sm font-medium text-gray-800"
-                    >
-                      Admin Members
-                    </label>
-                    <select
-                      name="assignMembers"
-                      id="assignMembers"
-                      multiple
-                      onChange={(e) => handleMemberChange(e, "member")}
-                      className="bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5"
-                    >
-                      {predefinedMembers
-                        .filter((member) => member.role === "member")
-                        .map((member) => (
-                          <option key={member.id} value={member.id}>
-                            {member.name}
-                          </option>
-                        ))}
-                    </select>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  {/* Left Side - 5 Select Boxes */}
+                  <div className="space-y-4">
+                    {/* Team Members */}
+                    <div>
+                      <label
+                        htmlFor="assignMembers"
+                        className="block mb-2 text-sm font-medium text-gray-800"
+                      >
+                        Team Members
+                      </label>
+                      <select
+                        name="assignMembers"
+                        id="assignMembers"
+                        multiple
+                        onChange={(e) => handleMemberChange(e, "member")}
+                        className="bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5"
+                      >
+                        {predefinedMembers
+                          .filter((member) => member.role === "member")
+                          .map((member) => (
+                            <option key={member.id} value={member.id}>
+                              {member.name}
+                            </option>
+                          ))}
+                      </select>
+                    </div>
+
+                    {/* Consultants */}
+                    <div>
+                      <label
+                        htmlFor="assignConsultants"
+                        className="block mb-2 text-sm font-medium text-gray-800"
+                      >
+                        Consultants
+                      </label>
+                      <select
+                        name="assignConsultants"
+                        id="assignConsultants"
+                        multiple
+                        onChange={(e) => handleMemberChange(e, "consultant")}
+                        className="bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5"
+                      >
+                        {predefinedMembers
+                          .filter((member) => member.role === "consultant")
+                          .map((member) => (
+                            <option key={member.id} value={member.id}>
+                              {member.name}
+                            </option>
+                          ))}
+                      </select>
+                    </div>
+
+                    {/* Owners */}
+                    <div>
+                      <label
+                        htmlFor="assignOwners"
+                        className="block mb-2 text-sm font-medium text-gray-800"
+                      >
+                        Owners
+                      </label>
+                      <select
+                        name="assignOwners"
+                        id="assignOwners"
+                        multiple
+                        onChange={(e) => handleMemberChange(e, "owner")}
+                        className="bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5"
+                      >
+                        {predefinedMembers
+                          .filter((member) => member.role === "owner")
+                          .map((member) => (
+                            <option key={member.id} value={member.id}>
+                              {member.name}
+                            </option>
+                          ))}
+                      </select>
+                    </div>
+
+                    {/* Contractors */}
+                    <div>
+                      <label
+                        htmlFor="assignContractor"
+                        className="block mb-2 text-sm font-medium text-gray-800"
+                      >
+                        Contractor
+                      </label>
+                      <select
+                        name="assignContractor"
+                        id="assignContractor"
+                        multiple
+                        onChange={(e) => handleMemberChange(e, "contractor")}
+                        className="bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5"
+                      >
+                        {predefinedMembers
+                          .filter((member) => member.role === "contractor")
+                          .map((member) => (
+                            <option key={member.id} value={member.id}>
+                              {member.name}
+                            </option>
+                          ))}
+                      </select>
+                    </div>
+
+                    {/* Suppliers */}
+                    <div>
+                      <label
+                        htmlFor="assignSuppliers"
+                        className="block mb-2 text-sm font-medium text-gray-800"
+                      >
+                        Suppliers
+                      </label>
+                      <select
+                        name="assignSuppliers"
+                        id="assignSuppliers"
+                        multiple
+                        onChange={(e) => handleMemberChange(e, "supplier")}
+                        className="bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5"
+                      >
+                        {predefinedMembers
+                          .filter((member) => member.role === "supplier")
+                          .map((member) => (
+                            <option key={member.id} value={member.id}>
+                              {member.name}
+                            </option>
+                          ))}
+                      </select>
+                    </div>
                   </div>
 
-                  <div>
-                    <label
-                      htmlFor="assignConsultants"
-                      className="block mb-2 text-sm font-medium text-gray-800"
-                    >
-                      Consultants
-                    </label>
-                    <select
-                      name="assignConsultants"
-                      id="assignConsultants"
-                      multiple
-                      onChange={(e) => handleMemberChange(e, "consultant")}
-                      className="bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5"
-                    >
-                      {predefinedMembers
-                        .filter((member) => member.role === "consultant")
-                        .map((member) => (
-                          <option key={member.id} value={member.id}>
-                            {member.name}
-                          </option>
-                        ))}
-                    </select>
-                  </div>
-
-                  <div>
-                    <label
-                      htmlFor="assignOwners"
-                      className="block mb-2 text-sm font-medium text-gray-800"
-                    >
-                      Owners
-                    </label>
-                    <select
-                      name="assignOwners"
-                      id="assignOwners"
-                      multiple
-                      onChange={(e) => handleMemberChange(e, "owner")}
-                      className="bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5"
-                    >
-                      {predefinedMembers
-                        .filter((member) => member.role === "owner")
-                        .map((member) => (
-                          <option key={member.id} value={member.id}>
-                            {member.name}
-                          </option>
-                        ))}
-                    </select>
-                  </div>
-                </div>
-
-                <div className="col-span-1 mt-2">
-                  <h4 className="text-sm font-medium text-gray-800">
-                    Selected Members
-                  </h4>
-                  <div className="col-span-1 mt-2">
+                  {/* Right Side - Selected Members Table */}
+                  <div className="h-[95%] mt-7 p-2 bg-gray-100 border  border-gray-300 rounded-lg ">
+                  <div className="col-span-1 mt-2 ">
+                    <h4 className="text-sm font-medium text-gray-800">
+                      Selected Members :
+                    </h4>
                     <table className="min-w-full mt-2 border border-gray-200">
                       <thead>
                         <tr className="bg-gray-100">
@@ -330,7 +388,6 @@ const Popups = ({ isModalOpen, closeModal, type, onSubmit }) => {
                           const member = predefinedMembers.find(
                             (member) => member.id === id
                           );
-
                           return member ? (
                             <tr key={id} className="border-b border-gray-200">
                               <td className="px-4 py-2 text-sm text-gray-800">
@@ -355,6 +412,7 @@ const Popups = ({ isModalOpen, closeModal, type, onSubmit }) => {
                         })}
                       </tbody>
                     </table>
+                  </div>
                   </div>
                 </div>
 
