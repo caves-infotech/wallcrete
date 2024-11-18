@@ -4,7 +4,6 @@ import { useMyContext } from "./Context";
 import Floors from "./Floors";
 
 const ProjectDetail = () => {
-  const { data } = useMyContext();
   const [activeButton, setActiveButton] = useState("All");
   const buttons = [
     {

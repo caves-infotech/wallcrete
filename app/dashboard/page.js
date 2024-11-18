@@ -2,6 +2,7 @@
 import { useState } from "react";
 import Floors from "./components/Floors";
 import ProjectDetail from "./components/ProjectDetail";
+import Task from "./components/Task";
 
 export default function DashboardPage() {
   return (

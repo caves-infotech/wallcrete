@@ -352,3 +352,116 @@ export const contacts = [
     },
   },
 ];
+
+// Data For All Tasks
+
+export const all_tasks = [
+  {
+    id: 2,
+    project_name: "project2",
+    task_name: "create web",
+    member_name: "member6",
+    assign_date: "2024-11-13",
+    target_date: "2024-10-19",
+    remark: "chaitali",
+    status: "completed",
+    steps: [
+      {
+        id: 23,
+        text: "Hiii",
+        stepStatus: "completed"
+      },
+      {
+        id: 24,
+        text: "Hello",
+        stepStatus: "completed"
+      },
+      {
+        id: 26,
+        text: "bye",
+        stepStatus: "pending"
+      }
+    ]
+
+  },
+  {
+    id: 4,
+    project_name: "project3",
+    task_name: "development",
+    member_name: "member5",
+    assign_date: "2024-11-13",
+    target_date: "2024-10-22",
+    remark: "edeg",
+    status: "pending",
+    steps: [
+      {
+        id: 0,
+        text: "11",
+        stepStatus: "pending",
+      },
+      {
+        id: 1,
+        text: "12",
+        stepStatus: "pending",
+      },
+      {
+        id: 2,
+        text: "13",
+        stepStatus: "completed",
+      }
+    ]
+  },
+  {
+    id: 6,
+    project_name: "project3",
+    task_name: "create app",
+    member_name: "member4",
+    assign_date: "2024-10-25",
+    target_date: "2024-10-25",
+    remark: "fedf",
+    status: "pending",
+    steps: []
+  },
+  {
+    id: 8,
+    project_name: "project4",
+    task_name: "deigning",
+    member_name: "member3",
+    assign_date: "2024-10-23",
+    target_date: "2024-10-23",
+    remark: "ded",
+    status: "pending",
+    steps: []
+  },
+  {
+    id: 10,
+    project_name: "project6",
+    task_name: "deigning",
+    member_name: "member2",
+    assign_date: "2024-10-25",
+    target_date: "2024-10-30",
+    remark: "ded",
+    status: "pending",
+    steps: []
+  },
+];
+
+export const predefinedTasks = [
+  {
+    id: 1,
+    task_name: "create web",
+  },
+
+  {
+    id: 4,
+    task_name: "development",
+  },
+  {
+    id: 6,
+    task_name: "create app",
+  },
+  {
+    id: 8,
+    task_name: "deigning",
+  },
+];

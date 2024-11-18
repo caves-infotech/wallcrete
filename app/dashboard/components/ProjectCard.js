@@ -4,7 +4,6 @@ import Image from "next/image";
 import demoimage from "../../../public/3129492.jpg";
 
 const ProjectCard = ({ project, test }) => {
-  const { setData } = useMyContext();
   // Function to send details
   const sendDetails = (project) => {
     setData(project);
